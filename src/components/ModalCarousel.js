@@ -12,7 +12,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 import "./ModalCarousel.css";
 
-const ModalCarousel = ({ isOpen, visible, onClose, images, selectedImg }) => {
+const ModalCarousel = ({ isOpen, visible, setVisible, oldVisibleValue, onClose, images, selectedImg }) => {
   const [current, setCurrent] = useState(selectedImg - 1);
   const length = images.length;
   const handle = useFullScreenHandle();
@@ -53,7 +53,9 @@ const ModalCarousel = ({ isOpen, visible, onClose, images, selectedImg }) => {
             <GrNext size="large" color="black" />
           </button>
           <div className="image-wrapper">
-            <FullScreen handle={handle} className="my-component">
+            <FullScreen 
+            handle={handle}
+            className="my-component">
               <motion.img
                 id="image"
                 key={images[current].key}
@@ -84,7 +86,11 @@ const ModalCarousel = ({ isOpen, visible, onClose, images, selectedImg }) => {
                 className="GrExpand"
                 size="large"
                 color="black"
-                onClick={handle.enter}
+                onClick={() => {
+                  handle.enter();
+                  setVisible(oldVisibleValue);
+                  console.log("visible state after handle.enter(): ", visible);
+                }}
               />
               {/* )} */}
             </button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { galleryData } from "../data/galleryData";
 import ModalCarousel from "./ModalCarousel.js";
 
@@ -30,7 +30,20 @@ const Gallery = ({ visible, setVisible, setIsToTopVisible, viewportWidth }) => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-console.log(visible)
+
+  const visibleRef = useRef(null);
+
+  const oldVisibleValue = visibleRef.current;
+  useEffect(() => {
+    if(visible < oldVisibleValue) {
+      setVisible(oldVisibleValue);
+    } else {
+      visibleRef.current = visible;
+    }
+    // console.log("Old visible: ", oldVisibleValue);
+    // console.log("visible.current: ", visibleRef.current, "and visible: ", visible);
+  }, [visible, oldVisibleValue]); 
+
   return (
     <section id="gallery" className="gallery-component">
       <div className="gallery-container">
@@ -63,6 +76,8 @@ console.log(visible)
           images={items}
           isOpen={isOpen}
           visible={visible}
+          setVisible={setVisible}
+          oldVisibleValue={oldVisibleValue}
           onClose={() => {
             window.scrollTo(0, scrollPosition);
             setIsOpen(false);
