@@ -1,51 +1,85 @@
 import React from "react";
+import Carousel from "react-multi-carousel";
+
+import { servicesData } from "./servicesData";
+import { ReactComponent as LeftBtn } from "../assets/SliderArrows/leftArrow.svg";
+import { ReactComponent as RightBtn } from "../assets/SliderArrows/rightArrow.svg";
+import Card from "./Card";
 
 const Services = () => {
+  const LeftArrow = ({ onClick, ...rest }) => {
+    const {
+    onMove,
+    carouselState: { currentSlide, deviceType }
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+    return (
+      <div className="btn left-btn">
+        <LeftBtn onClick={() => onClick()} />
+      </div>
+    );
+  };
+  const RightArrow = ({ onClick, ...rest }) => {
+    const {
+    onMove,
+    carouselState: { currentSlide, deviceType }
+  } = rest;
+  // onMove means if dragging or swiping in progress.
+    return (
+      <div className="btn right-btn">
+        <RightBtn onClick={() => onClick()} />
+      </div>
+    );
+  };
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 690 },
+      items: 2,
+    },
+    // mobile: {
+    //   breakpoint: { max: 464, min: 0 },
+    //   items: 1,
+    // },
+  };
+
   return (
-    <section className="services">
+    <section id="services" className="services">
       <h2>Our Services</h2>
       <p>A Lasting Impact</p>
-      <div className="sevice-cards">
-        <div className="sevice-card">
-          <div>
-            <i className="far fa-star"></i>
-          </div>
-          <h3>Build Maintenance</h3>
-          <p>
-            At J.B. & B. Construction, our clients are our number one priority
-            and we go the extra mile to make sure they’re completely satisfied.
-            With this service, we’re fully prepared to tackle even the most
-            complex projects and stand by the exceptional quality of our work.
-            Call us today and find out more about what we can do for you.
-          </p>
-        </div>
-        <div className="sevice-card">
-          <div>
-            <i className="far fa-star"></i>
-          </div>
-          <h3>Construction Management</h3>
-          <p>
-            When you’re looking for top quality work, J.B. & B. Construction is
-            here to help. Our team of professionals is available to provide a
-            wide range of customizable options, all guaranteed to meet and
-            exceed expectations. Contact our office today to learn more about
-            this and our other available services.
-          </p>
-        </div>
-        <div className="sevice-card">
-          <div>
-            <i className="far fa-star"></i>
-          </div>
-          <h3>Construction Planning</h3>
-          <p>
-            Looking for a reliable General Contractor Company with extensive
-            experience for your next project? At J.B. & B. Construction, we
-            stand by the excellence of our work and provide clients with
-            personalized attention based on their specific needs. If you’re
-            looking for professional Construction Planning, please get in touch
-            for your consultation.
-          </p>
-        </div>
+
+      <div className="slider-container">
+        <Carousel
+          infinite
+          arrows
+          autoPlay={true}
+          autoPlaySpeed={5000}
+          responsive={responsive}
+          customLeftArrow={<LeftArrow />}
+          customRightArrow={<RightArrow />}
+        >
+          {servicesData.map((serviceCard) => {
+            return (
+              <div className="sevice-card-wrapper">
+                <Card
+                  key={serviceCard.key}
+                  image={serviceCard.image}
+                  title={serviceCard.title}
+                  text={serviceCard.text}
+                />
+              </div>
+            );
+          })}
+        </Carousel>
       </div>
     </section>
   );

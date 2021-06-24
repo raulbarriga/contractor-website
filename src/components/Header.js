@@ -1,54 +1,66 @@
-import React from "react";
-import logo from "../images/JB-and-B-Construction-logo.jpg";
+import React, { useState, useEffect } from "react";
+import { Fade as Hamburger } from "hamburger-react";
+import { AnimatePresence } from "framer-motion";
 
-const Header = () => {
+import NavMenu from "./NavMenu";
+import logo from "../assets/images/Logos/JB-and-B-Construction-logo.jpg";
+
+// removed setShowNavBtn as part of moving state up to App.js
+const Header = ({ showNavBtn, viewportWidth }) => {
+  // for the Hamburger-React icon component
+  const [isOpen, setOpen] = useState(false)
+  // const [showNavBtn, setShowNavBtn] = useState(false);
+  const [openNavMenu, setOpenNavMenu] = useState(false);
+  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  // to check when the viewport has the mobile breakpoint and show the nav menu button
+  // useEffect(() => {
+  //   const handleWindowResize = () => setViewportWidth(window.innerWidth);
+  //   window.addEventListener("resize", handleWindowResize);
+
+  //   if (viewportWidth <= 767) {
+  //     setShowNavBtn(true);
+  //   } else {
+  //     setShowNavBtn(false);
+  //   }
+
+  //   return () => window.removeEventListener("resize", handleWindowResize);
+  // }, [viewportWidth]);
+
+  // pass this to each link so that the menu will close when you click on a link
+  const closeNavMenu = () => setOpenNavMenu(false);
+
+  // const removePageScroll = () => {
+    if(openNavMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  // }
+
   return (
-    <header>
+    <header id="header">
       <a className="logo" href="/">
         <img src={logo} alt="logo" />
       </a>
       <div className="title">
         <p>
           <span>
-            <a href="/">J. B. &#38; B. Construction</a>
+            <a href="/">JB &#38; B Construction, Inc.</a>
           </span>
         </p>
       </div>
-      {/* the horizontal line is created with a border-top */}
-      <div className="horizontal-line"></div>
+      <hr className="horizontal-line" />
       <nav className="nav-menu">
-        <ul>
-          <li>
-            <a href="#home">
-              <p>Home</p>
-            </a>
-          </li>
-          <li>
-            <a href="#about">
-              <p>About</p>
-            </a>
-          </li>
-          <li>
-            <a href="#services">
-              <p>Services</p>
-            </a>
-          </li>
-          <li>
-            <a href="#gallery">
-              <p>Gallery</p>
-            </a>
-          </li>
-          <li>
-            <a href="#testimonials">
-              <p>Testimonials</p>
-            </a>
-          </li>
-          <li>
-            <a href="#quote">
-              <p>Request a Quote</p>
-            </a>
-          </li>
-        </ul>
+        {showNavBtn && (
+          <Hamburger toggled={isOpen} toggle={setOpen} onToggle={() => setOpenNavMenu(!openNavMenu)} />
+        )}
+        <AnimatePresence>
+          {openNavMenu && (
+            <NavMenu openNavMenu={openNavMenu} setOpen={setOpen} closeNavMenu={closeNavMenu} />
+          )}
+        </AnimatePresence>
+        {viewportWidth >= 768 && <NavMenu />}
       </nav>
     </header>
   );

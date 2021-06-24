@@ -1,0 +1,120 @@
+.modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(229, 229, 228, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .open {
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+  }
+  
+  .modal-container .slider {
+    margin: auto;
+    display: flex;
+  }
+  
+  .modal-container .slider .btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: calc(50% - 50px);
+    z-index: 999999;
+    width: 28px;
+    height: 28px;
+  }
+  .modal-container .slider .btn svg polyline {
+    stroke-width: 1.5px;
+  }
+  
+  .modal-container .slider .prev {
+    padding: 36px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(229, 229, 228, 1);
+    left: 0;
+  }
+  .modal-container .slider .btn.disable-btn {
+    background-color: hsla(0, 0%, 100%, 0.5);
+    pointer-events: none;
+    cursor: default;
+    filter: opacity(50%);
+    padding: 36px;
+    width: 100px;
+    height: 100px;
+  }
+  .modal-container .slider .btn.prev.disable-btn {
+    left: 0;
+  }
+  .modal-container .slider .btn.next.disable-btn {
+    right: 0;
+  }
+  .modal-container .slider .next {
+    padding: 36px;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(229, 229, 228, 1);
+    right: 0;
+  }
+  
+  .modal-container .slider .image-wrapper {
+    width: auto;
+    height: auto;
+  }
+  
+  .fullscreen-enabled {
+    text-align: center;
+    background-color: black;
+  }
+  
+  .modal-container .slider .image-wrapper img {
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  .modal-container .nav-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+  
+  .nav-container .fullscreen-wrapper button {
+    height: 44px;
+    width: 38px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 35px;
+  }
+  
+  .nav-container .fullscreen-wrapper button .GrExpand path {
+    stroke-width: 1.19px;
+  }
+  
+  .exit-wrapper button {
+    height: 44px;
+    width: 38px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+  
+  .exit-wrapper button .GrClose path {
+    stroke-width: 1.5px;
+  }
+  
