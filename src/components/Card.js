@@ -1,21 +1,21 @@
 import React from "react";
 import "./Card.css";
 
-const Card = ({ title, image, text }) => {
+const Card = ({ item }) => {
   return (
-    <div className="container">
+    <div className="card-container">
       <div className="card">
         <div className="face face1">
           <div className="content">
-            <img src={image} alt="card" />
+            <img src={item.image} alt="card" />
             <div className="text-box">
-              <h3>{title}</h3>
+              <h3>{item.title}</h3>
             </div>
           </div>
         </div>
         <div className="face face2">
           <div className="content">
-            <p>{text}</p>
+            <p>{item.text}</p>
           </div>
         </div>
       </div>

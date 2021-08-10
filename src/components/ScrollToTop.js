@@ -13,7 +13,7 @@ export default function ScrollToTop() {
   };
 
   return (
-    <div className="scroll-to-top">
+    <div id="scroll-to-top" className="scroll-to-top">
         <div onClick={scrollToTop}>
           <GrUp size="large" />
         </div>

@@ -1,42 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Fade as Hamburger } from "hamburger-react";
 import { AnimatePresence } from "framer-motion";
+import { useLockBodyScroll } from "react-use";
 
 import NavMenu from "./NavMenu";
 import logo from "../assets/images/Logos/JB-and-B-Construction-logo.jpg";
 
-// removed setShowNavBtn as part of moving state up to App.js
 const Header = ({ showNavBtn, viewportWidth }) => {
   // for the Hamburger-React icon component
   const [isOpen, setOpen] = useState(false)
-  // const [showNavBtn, setShowNavBtn] = useState(false);
+
   const [openNavMenu, setOpenNavMenu] = useState(false);
-  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
-  // to check when the viewport has the mobile breakpoint and show the nav menu button
-  // useEffect(() => {
-  //   const handleWindowResize = () => setViewportWidth(window.innerWidth);
-  //   window.addEventListener("resize", handleWindowResize);
-
-  //   if (viewportWidth <= 767) {
-  //     setShowNavBtn(true);
-  //   } else {
-  //     setShowNavBtn(false);
-  //   }
-
-  //   return () => window.removeEventListener("resize", handleWindowResize);
-  // }, [viewportWidth]);
 
   // pass this to each link so that the menu will close when you click on a link
   const closeNavMenu = () => setOpenNavMenu(false);
 
-  // const removePageScroll = () => {
-    if(openNavMenu) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  // }
+  // to prevent vertical scroll when the hamburger nav menu is open
+  useLockBodyScroll(openNavMenu);
 
   return (
     <header id="header">
@@ -60,7 +40,7 @@ const Header = ({ showNavBtn, viewportWidth }) => {
             <NavMenu openNavMenu={openNavMenu} setOpen={setOpen} closeNavMenu={closeNavMenu} />
           )}
         </AnimatePresence>
-        {viewportWidth >= 768 && <NavMenu />}
+        {viewportWidth >= 768 && <NavMenu openNavMenu={openNavMenu} setOpen={setOpen} closeNavMenu={closeNavMenu} />}
       </nav>
     </header>
   );

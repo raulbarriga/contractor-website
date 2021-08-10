@@ -1,88 +1,78 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { galleryData } from "../data/galleryData";
 import ModalCarousel from "./ModalCarousel.js";
+import { useLockBodyScroll } from "react-use";
 
-const Gallery = ({ visible, setVisible, setIsToTopVisible, viewportWidth }) => {
+const Gallery = ({
+  visibleImages,
+  setVisibleImages,
+  viewportWidth,
+  setCount3TotalImgsPerRow,
+  setCount4TotalImgsPerRow,
+  setIsToTopVisible
+}) => {
   // image data
   const [items, setItems] = useState(galleryData);
   // to open/close the ModalComponent popup
-  const [isOpen, setIsOpen] = useState(false);
-  // image from the gallery that is clicked on (to pass to the ModalCarousel component)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // image from the gallery that is clicked on (to pass to the ModalCarousel component & begin the carousel from there)
   const [selectedImg, setSelectedImg] = useState(null);
   // to save scroll position befor opening modal. It returns you to the same position when modal is closed.
   // Needed for fullscreen modal button since it kept sending to top of web page on modal close.
-  const [scrollPosition, setScrollPosition] = useState();
+  const [scrollPosition, setScrollPosition] = useState(); // don't need it after I used the custom hook
 
   const loadMore = () => {
-    if (viewportWidth <= 1200 && viewportWidth >= 840) {
-      setVisible((prevValue) => prevValue + 3);
+    // methods to compare to visibleImages and set the correct # of images per row when resizing the browser
+    setCount3TotalImgsPerRow((prevValue) => (prevValue += 3));
+    setCount4TotalImgsPerRow((prevValue) => (prevValue += 4));
+    
+    if (`${viewportWidth}` <= 1200 && `${viewportWidth}` >= 840) {
+      console.log("Gallery.js, before setVisibleImages", visibleImages);
+      setVisibleImages((prevValue) => prevValue + 3);
+      console.log("Gallery.js, after setVisibleImages", visibleImages);
     } else {
-      setVisible((prevValue) => prevValue + 4);
+      //will add the respective count variable to Gallery.js to count from there. They'll be used to compare in App.js and add/remove images that way in App.js
+      setVisibleImages((prevValue) => prevValue + 4);
     }
   };
 
-  //to update the css for the modal
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  const visibleRef = useRef(null);
-
-  const oldVisibleValue = visibleRef.current;
-  useEffect(() => {
-    if(visible < oldVisibleValue) {
-      setVisible(oldVisibleValue);
-    } else {
-      visibleRef.current = visible;
-    }
-    // console.log("Old visible: ", oldVisibleValue);
-    // console.log("visible.current: ", visibleRef.current, "and visible: ", visible);
-  }, [visible, oldVisibleValue]); 
+  //to update the css for the modal when it's opened(i.e. prevent scrolling)
+  useLockBodyScroll(isModalOpen);
 
   return (
     <section id="gallery" className="gallery-component">
       <div className="gallery-container">
-        {items.slice(0, visible).map((item, index) => (
+        {items.slice(0, visibleImages).map((item, index) => (
           <img
             src={item.mediaUrl}
             key={item.key}
             alt={item.mediaUrl}
             onClick={() => {
-              //do not show the scroll to top button before modal will open
-              setIsToTopVisible(false);
               //save the scroll position to restore it once modal is closed (fixing fullscreen api issue)
               setScrollPosition(window.pageYOffset);
-              setIsOpen(true);
+              setIsModalOpen(true);
+              setIsToTopVisible(false); // don't show the scroll-to-top btn
               setSelectedImg(item.key);
             }}
           />
         ))}
       </div>
 
-      {visible < items.length && (
+      {visibleImages < items.length && (
         <div className="btn-container">
           <button onClick={loadMore}>Load More</button>
         </div>
       )}
 
-
-      {isOpen && (
+      {isModalOpen && (
         <ModalCarousel
           images={items}
-          isOpen={isOpen}
-          visible={visible}
-          setVisible={setVisible}
-          oldVisibleValue={oldVisibleValue}
+          isModalOpen={isModalOpen}
+          visibleImages={visibleImages}
           onClose={() => {
             window.scrollTo(0, scrollPosition);
-            setIsOpen(false);
-            // show the scroll to top button once modal closes
-            setIsToTopVisible(false);
+            setIsModalOpen(false);
+            setIsToTopVisible(true); // show the scroll-to-top btn
           }}
           selectedImg={selectedImg}
         ></ModalCarousel>

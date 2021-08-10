@@ -31,7 +31,7 @@ export const servicesData = [
     image: Drywall,
     title: "Drywall",
     text:
-      "Have you heard of the endless benefits of drywall? Drywall is known for its cost effectivity and energy efficiency, but there’s so much more to love! Work with JB & B Construction Inc. to have high quality drywall installed to your residence. Call us today for a free estimate on drywall installation."
+      "Have you heard of the endless benefits of drywall? Drywall is known for its cost effectivity and energy efficiency, but there’s so much more to love! Work with JB & B Construction, Inc. to have high quality drywall installed to your residence. Call us today for a free estimate on drywall installation."
   },
   {
     key: 4,

@@ -57,7 +57,7 @@ const NavMenu = ({ openNavMenu, closeNavMenu, setOpen }) => {
         openNavMenu && closeNavMenu();
         setOpen(false);
         }}>
-        <a href="#form-section">
+        <a href="#contactUs-section">
           <p>Request a Quote</p>
         </a>
       </li>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { init, sendForm } from "emailjs-com";
-import formImage from "../images/formImage.jpg";
+import { isMobile } from "react-device-detect";
 
-const Quote = () => {
+
+const ContactUs = () => {
   init("user_ZNljYlzkMvUQiI926og3B");
 
   const [fadeOut, setFadeOut] = useState(false);
@@ -53,10 +54,17 @@ const Quote = () => {
     inputHighlight.style.borderColor = "#ff4040";
   };
 
+  
+
   return (
-    <section id="form-section" className="form-section">
+    <section id="contactUs-section" className="contactUs-section">
       {/* <img className="form-img" src={formImage} alt={formImage} /> */}
-      <div className="parallax-img" alt="Quote-Image"></div>
+      <div className="parallax-img" alt="Quote-Image"
+      style={{
+        backgroundAttachment: `${isMobile ? "scroll" : "fixed"}`
+      
+      }}
+      ></div>
       <div className="form-title">
         <h2>FREE ESTIMATES</h2>
       </div>
@@ -152,4 +160,4 @@ const Quote = () => {
   );
 };
 
-export default Quote;
+export default ContactUs;

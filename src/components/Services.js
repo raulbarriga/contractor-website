@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
+import Slider from "react-slick";
 
 import { servicesData } from "./servicesData";
 import { ReactComponent as LeftBtn } from "../assets/SliderArrows/leftArrow.svg";
@@ -7,49 +7,68 @@ import { ReactComponent as RightBtn } from "../assets/SliderArrows/rightArrow.sv
 import Card from "./Card";
 
 const Services = () => {
-  const LeftArrow = ({ onClick, ...rest }) => {
-    const {
-    onMove,
-    carouselState: { currentSlide, deviceType }
-  } = rest;
-  // onMove means if dragging or swiping in progress.
+  const PrevButton = ({ className, style, onClick }) => {
     return (
       <div className="btn left-btn">
-        <LeftBtn onClick={() => onClick()} />
+        <LeftBtn
+          onClick={onClick}
+          aria-label="Go to previous slide"
+          className={["my-class-prev", className].join(" ")}
+          style={{ ...style }}
+        />
       </div>
     );
   };
-  const RightArrow = ({ onClick, ...rest }) => {
-    const {
-    onMove,
-    carouselState: { currentSlide, deviceType }
-  } = rest;
-  // onMove means if dragging or swiping in progress.
+  const NextButton = ({ className, style, onClick }) => {
     return (
       <div className="btn right-btn">
-        <RightBtn onClick={() => onClick()} />
+        <RightBtn
+          onClick={onClick}
+          className={["my-class-next", className].join(" ")}
+          style={{ ...style }}
+          aria-label="Go to next slide"
+        />
       </div>
     );
   };
 
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 690 },
-      items: 2,
-    },
-    // mobile: {
-    //   breakpoint: { max: 464, min: 0 },
-    //   items: 1,
-    // },
+  const settings = {
+    prevArrow: <PrevButton />,
+    nextArrow: <NextButton />,
+    dots: false, // wasn't working so I left it out (CSS is still in its file though)
+    centerMode: true,
+    centerPadding: "0px", // this makes centering work
+    infinite: true,
+    // speed: 500, // for autoPlay which I don't really need so I'm leaving it out
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 99999,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        // 600 since 2 cards are 600px total, plus card gap
+        breakpoint: 730,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -57,30 +76,14 @@ const Services = () => {
       <h2>Our Services</h2>
       <p>A Lasting Impact</p>
 
-      <div className="slider-container">
-        <Carousel
-          infinite
-          arrows
-          autoPlay={true}
-          autoPlaySpeed={5000}
-          responsive={responsive}
-          customLeftArrow={<LeftArrow />}
-          customRightArrow={<RightArrow />}
-        >
-          {servicesData.map((serviceCard) => {
-            return (
-              <div className="sevice-card-wrapper">
-                <Card
-                  key={serviceCard.key}
-                  image={serviceCard.image}
-                  title={serviceCard.title}
-                  text={serviceCard.text}
-                />
-              </div>
-            );
-          })}
-        </Carousel>
-      </div>
+      <Slider
+        {...settings}
+      >
+        {servicesData.map((item) => (
+          <Card item={item} key={item.key} />
+        )
+        )}
+      </Slider>
     </section>
   );
 };

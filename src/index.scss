@@ -38,7 +38,7 @@
     position: fixed;
     right: 3%;
     top: 82%;
-    opacity: 0.5;
+    // opacity: 0.5;
     cursor: pointer;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -69,6 +69,8 @@
   header {
     background-color: rgb(229, 229, 228);
     height: 260px;
+    position: relative;
+    z-index: 2;
 
     a.logo {
       display: inline-block;
@@ -184,47 +186,24 @@
 
     .welcome {
       height: 560px;
+      max-height: 560px;
       position: relative;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+      color: white;
+      overflow: hidden;
+      z-index: 1;
 
-      @include bp-devices {
-        background: url("./assets/images/Welcome.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-
-      .titles-wrapper {
+      .opacity-layer {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
         height: 100%;
-        .overlay-titles {
-          height: 100%;
-          color: #e5e5e4;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-
-          h1 {
-            width: 940px;
-            font: normal normal normal 72px/1.25em "barlow", sans-serif;
-            font-size: 72px;
-            font-weight: 500;
-            text-align: center;
-            margin: 0 0px 30px calc((100% - 980px) * 0.5);
-          }
-          p {
-            font-family: Nunito, sans-serif;
-            font-weight: 100;
-            width: 860px;
-            text-align: center;
-            line-height: 1.67em;
-            font-size: 20px;
-            left: 60px;
-            position: relative;
-            margin: 0px 0px 10px calc((100% - 980px) * 0.5);
-          }
-        }
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
       }
-      .bottom-layer {
+
+      .video-layer {
         margin: auto;
         max-width: 100%;
         max-height: 100%;
@@ -233,70 +212,55 @@
         img,
         video,
         canvas {
-          width: 100%; // responsive images,video and canvas elements
-        }
-      }
-      .top-layer {
-        max-width: 100%;
-        max-height: inherit;
-        position: relative; // and this allows you to put the div on top of the video
-        margin-top: -640px;
-        // Hover Off
-        -o-transition: 1s;
-        -ms-transition: 1s;
-        -moz-transition: 1s;
-        -webkit-transition: 1s;
-        transition: 1s;
-
-        &:hover {
-          // Hover On
-          background-color: rgba(255, 255, 255, 0.6);
-          -o-transition: 1s;
-          -ms-transition: 1s;
-          -moz-transition: 1s;
-          -webkit-transition: 1s;
-          transition: 1s;
-        }
-        &.p {
-          text-align: center;
-          margin: auto;
-          // padding: 320px;
-        }
-      }
-      // when the screen is too wide
-      // also vice versa when the screen ratio is below 16/9.
-      .video {
-        // *** do not show video on mobile phones because it consts users data charges***
-        @include bp-devices {
-          display: none;
-        }
-
-        // @include min-video-ratio {
-        //   width: 100%;
-        //   height: auto;
-        // }
-
-        // @include max-video-ratio {
-        //   width: auto;
-        //   height: 100%;
-        // }
-
-        video {
-          z-index: -99999;
+          // responsive images,video and canvas elements
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           position: fixed;
+          z-index: 1;
           top: 0;
           left: 0;
-          width: 100vw;
-          min-width: 100%;
         }
       }
 
-      // welcome end
+      .title-wrapper {
+        overflow: hidden;
+        max-width: 640px;
+        margin: 0 auto;
+        h1 {
+          display: flex;
+          justify-content: center;
+          position: relative;
+          z-index: 3;
+          text-align: center;
+          margin-top: 150px;
+          margin-bottom: 30px;
+          line-height: 1.25em;
+          font-size: 72px;
+          padding: 0 2%;
+          @media screen and (max-width: 629px) {
+            font-size: 10.5vw;
+          }
+        }
+      }
+
+      .text-wrapper {
+        p {
+          position: relative;
+          z-index: 3;
+          text-align: center;
+          line-height: 1.67em;
+          font-size: 20px;
+        }
+        // Welcome serction end
+      }
     }
 
     .about {
       background-color: #e5e5e4;
       overflow: auto;
+      position: relative;
+      z-index: 2;
 
       .about-details {
         color: black;
@@ -314,30 +278,15 @@
           width: 780px;
           font: normal normal normal 18px/1.75em "Nunito", sans-serif;
           margin: 0 auto 32px auto;
-          // margin-bottom: 32px;
           text-align: center;
           line-height: 1.75em;
           font-size: 18px;
           font-weight: 100;
-          // &:nth-of-type(1) {
-          //   font: normal normal normal 18px/1.75em "Nunito", sans-serif;
-          //   margin: 0 auto 32px auto;
-          //   // margin-bottom: 32px;
-          //   text-align: center;
-          //   line-height: 1.75em;
-          //   font-size: 18px;
-          //   font-weight: 100;
-          // }
-          // &:nth-of-type(2),
-          // &:nth-of-type(3) {
-          //   font: normal normal normal 15px/1.875em "Nunito", sans-serif;
-          //   margin: 0 auto 52px auto;
-          //   // margin-bottom: 52px;
-          //   text-align: center;
-          //   line-height: 1.875em;
-          //   font-size: 15px;
-          //   font-weight: 400;
-          // }
+
+          @media screen and (max-width: 780px) {
+            padding: 0 2%;
+            width: auto;
+          }
         }
       }
 
@@ -358,15 +307,12 @@
     .services {
       height: 920px;
       width: 100%;
-      background-color: #e5e5e4;
       overflow: hidden;
-      /* // working on the grid */
-      display: grid;
-      grid-template-rows: min-content min-content 0.2fr 1fr;
-      grid-template-columns: 100%;
-      justify-content: start;
-      grid-row-end: none;
-      min-height: 920px;
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+      z-index: 2;
+      background-color: #e5e5e4;
 
       h2 {
         margin: 122px auto 32px auto;
@@ -375,7 +321,6 @@
         font: normal normal normal 40px/1.35em "barlow", sans-serif;
         font-weight: 500;
         font-size: 40px;
-        color: black;
         height: auto;
         grid-area: 1 / 1 / 2 / 2;
       }
@@ -384,63 +329,96 @@
         text-align: center;
         font: normal normal normal 18px/1.75em "Nunito", sans-serif;
         font-weight: 100;
-        color: black;
         line-height: 1.875em;
         font-size: 18px;
         margin-bottom: 10px;
       }
 
-      .slider-container {
-        width: 100%;
-
-        .react-multi-carousel-list {
-          padding-top: 50px;
-          .sevice-card-wrapper {
-            height: 440px;
-            outline: 0;
-            grid-area: 4 / 1 / 5 / 2;
-            // sevice-cards end
-          }
-
+      /* Button styling start */
+      .slick-slider {
+        &.slick-initialized {
           .btn {
+            z-index: 999999;
+            border-radius: 50%;
             position: absolute !important;
             background-color: rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease-in-out;
             height: 50px;
             width: 50px;
             display: flex;
             align-items: center;
             cursor: pointer;
-            border-radius: 50%;
-            transition: background-color 0.3s ease-in-out;
 
-            svg {
+            /* slick svg buttons start */
+            .slick-arrow {
               stroke: #e5e5e4;
               height: 29px;
               width: 29px;
               stroke-width: 2px;
-              margin: 0 8px;
-              display: block;
+              margin: 0px 9.5px;
+
+              &.slick-prev,
+              &.slick-next {
+                position: inherit;
+                top: initial;
+                -webkit-transform: inherit;
+                -ms-transform: inherit;
+                transform: inherit;
+              }
+            }
+            &.left-btn {
+              /* left: 47px; */
+              left: calc(4.5%);
+              /* top: 46%; */
+              top: 43%;
+
+              .slick-prev {
+                left: 0;
+              }
             }
 
-            &.left-btn {
-              left: calc(4% + 1px);
-            }
             &.right-btn {
-              right: calc(4% + 1px);
-              transform: scaleX(-1);
+              /* right: 47px; */
+              right: calc(4.5%);
+              /* bottom: 43.69%; */
+              bottom: 46.9%;
+
+              .slick-next {
+                transform: rotate(180deg);
+                right: 0;
+              }
             }
 
             &:hover {
               background-color: rgba(0, 0, 0, 0.8);
             }
+
+            /* slick svg buttons end */
+          }
+          /* Button styling end */
+        }
+
+        .slick-track {
+          padding-top: 50px;
+
+          .slick-slide {
+            > div {
+              display: grid;
+              place-items: center;
+              width: 100%;
+              margin: auto;
+              padding: 0px;
+            }
           }
         }
       }
 
-      // services end
+      /* services end */
     }
 
     .gallery-component {
+      position: relative;
+      z-index: 2;
       display: grid;
       height: 1020px;
       height: auto;
@@ -455,14 +433,17 @@
         grid-gap: 0.6rem;
         background-color: #e5e5e4;
 
+        // show 3 images in a row
         @media (max-width: 1200px) {
           grid-template-columns: repeat(3, 1fr);
         }
 
+        // show 2 images in a row
         @media (max-width: 839px) {
           grid-template-columns: repeat(2, 1fr);
         }
 
+        // show 1 image in a row
         @media (max-width: 650px) {
           grid-template-columns: repeat(1, 1fr);
         }
@@ -506,6 +487,7 @@
 
     .testimonials {
       position: relative;
+      z-index: 2;
       height: 441px;
       max-height: 441px;
       width: 100%;
@@ -628,16 +610,12 @@
       }
     }
 
-    #form-section {
+    .contactUs-section {
       height: 1390px;
       width: 100%;
       background-color: #e5e5e4;
-
-      // .form-img {
-      //   margin: 0 0 57px 0;
-      //   height: 560px;
-      //   object-fit: cover;
-      // }
+      position: relative;
+      z-index: 2;
 
       .parallax-img {
         width: 100%;
@@ -675,6 +653,7 @@
           font-family: "Barlow", sans-serif;
           line-height: 1.875em;
           color: #1e2025; // --color-15
+          padding: 0 5px;
         }
       }
 
@@ -685,8 +664,9 @@
         form {
           margin: 0 auto;
           width: 940px;
-          height: 589px;
+          height: 620px;
           max-width: 100%;
+          padding: 0 5px;
 
           div {
             &:nth-of-type(3) {
@@ -803,6 +783,24 @@
             }
           }
         }
+
+        ul {
+          li {
+            float: left;
+            display: block;
+            width: 100%;
+          }
+        }
+
+        .error-span {
+          color: red;
+          float: left;
+          display: block;
+
+          @include bp-devices {
+            font-size: 14px;
+          }
+        }
       }
 
       //quote section end
@@ -814,6 +812,7 @@
   .main-footer {
     height: 100%;
     position: relative;
+    z-index: 2;
     padding: 120px 0 80px 0;
     margin-right: auto;
     margin-left: auto;

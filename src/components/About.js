@@ -1,4 +1,5 @@
 import React from "react";
+import { isMobile } from "react-device-detect";
 
 const About = () => {
   return (
@@ -22,11 +23,11 @@ const About = () => {
           properties in California.
         </p>
         <p>
-          We have achieved success over the past years due to the effort we
-          put into every project, our professionalism, and our diligence with
-          the tasks at hand. We treat every property that we work on with
-          respect and with our utmost attention. We strive to take every
-          construction project and complete it to perfection.
+          We have achieved success over the past years due to the effort we put
+          into every project, our professionalism, and our diligence with the
+          tasks at hand. We treat every property that we work on with respect
+          and with our utmost attention. We strive to take every construction
+          project and complete it to perfection.
         </p>
         <p>
           Here at JB & B Construction, Inc. we are devoted towards delivering
@@ -37,7 +38,16 @@ const About = () => {
           and obtain your free estimate.
         </p>
       </div>
-      <div className="parallax-img" alt="about"></div>
+      <div
+        className="parallax-img"
+        alt="about"
+        style={{ 
+          backgroundAttachment: `${isMobile ? "scroll" : "fixed"}`,
+          objectFit: `${isMobile ? "cover" : "fill"}`,
+          // height: '100%',
+          // width: '100%'
+        }}
+      ></div>
     </section>
   );
 };
