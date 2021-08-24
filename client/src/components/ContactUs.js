@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { isMobile } from "react-device-detect";
-import axios from "axios";
+
+import {
+  sendForm
+} from "../api/index";
 
 const ContactUs = () => {
   const [fadeOut, setFadeOut] = useState(false);
@@ -14,59 +17,12 @@ const ContactUs = () => {
     reset,
   } = useForm();
 
-  // {
-  //   defaultValues: {
-  //     "first-name": "",
-  //     "last-name": "",
-  //     email: "",
-  //     phone: "",
-  //   }
-  // }
-
-  
-
-  // const onSubmit = (data) => {
-  //   //prevent the browser from reloading every time the submit button is clicked
-  //   sendForm("contact_form", "template_lnb4p3r", "#contact-form")
-  //     .then((response) => {
-  //         console.log(
-  //           "SUCCESS!",
-  //           response.status,
-  //           response.text,
-  //           contactNumber
-  //         );
-  //         setFadeOut(true);
-  //         console.log("fadeOut: ", fadeOut);
-  //       }
-  //     )
-  // };
-
   const onSubmitForm = async (formValues, event) => {
       event.preventDefault();
     setSubmit(true);
-
-    let config = {
-      method: "post",
-      url: `http://localhost:3000/api/contactForm`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: formValues,
-    };
-
-    try {
-      const response = await axios(config);
-      console.log(response);
-      if (response.data.status === 200) {
-        reset();
-        console.log('Success!'); // can also add reset() here to reset the form
-        setFadeOut(true);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    console.log(formValues);
+    sendForm(formValues);  
+    reset();
+setFadeOut(true); 
   };
 
   const onBlurHandler = (e) => {
@@ -76,7 +32,7 @@ const ContactUs = () => {
     inputHighlight.style.borderWidth = "1px";
     inputHighlight.style.borderColor = "#ff4040";
   };
-  console.log(errors);
+
   return (
     <section className="contactUs-section">
       {/* <img className="form-img" src={formImage} alt={formImage} /> */}
@@ -96,15 +52,10 @@ const ContactUs = () => {
       <div className="form-container">
         <form
           id="contact-form"
-          // onSubmit={(event) => {
-          //   handleSubmit(onSubmit);
-          //   setSubmit(true);
-          //   event.preventDefault();
-          //   event.target.reset();
-          // }}
+          method="POST"
+          action="contactForm"
           onSubmit={handleSubmit(onSubmitForm)}
         >
-          {/* <input type="hidden" name="contact_number" value={contactNumber} /> */}
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
@@ -211,7 +162,7 @@ const ContactUs = () => {
                   message: "You must enter your message",
                 },
               })}
-              placeholder="Comments"
+              placeholder="Message"
             ></textarea>
             {errors["message"] && (
               <span
@@ -240,7 +191,7 @@ const ContactUs = () => {
               className={fadeOut ? "btn-msg fadeOut" : "btn-msg"}
               onAnimationEnd={() => {
                 console.log("Animation ended");
-                setFadeOut(false);
+                // setFadeOut(false); // if I want it to reappear again
                 console.log("fadeOut: ", fadeOut);
               }}
             >
