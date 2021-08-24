@@ -1,49 +1,23 @@
 {
-  "name": "tio-jorges-website",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.1",
-    "framer-motion": "^4.1.3",
-    "hamburger-react": "^2.4.1",
-    "node-sass": "^5.0.0",
-    "nodemailer": "^6.6.3",
-    "react": "^17.0.1",
-    "react-device-detect": "^1.17.0",
-    "react-dom": "^17.0.1",
-    "react-hook-form": "^7.12.2",
-    "react-icons": "^4.2.0",
-    "react-scripts": "4.0.3",
-    "react-slick": "^0.28.1",
-    "react-use": "^17.2.4",
-    "remixicon": "^2.5.0",
-    "slick-carousel": "^1.8.1"
+  "name": "tio-jorge-website",
+  "version": "1.0.0",
+  "description": "main folder",
+  "main": "server.js",
+  "type": "module",
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server/server",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "Raul Barriga",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "dependencies": {}
 }
