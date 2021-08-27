@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <meta name="HandheldFriendly" content="true" />
-          <meta name="description" content="General Contractor" />
+          <meta name="description" content="General contractor serving the Greater San Francisco Bay Area. We also serve its surrounding regions." />
           {/* <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
@@ -21,11 +21,7 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;500&family=Nunito:wght@300;400&family=Playfair+Display:wght@400;700&display=swap"
             rel="stylesheet"
-          />
-          <link
-            href="https://cdn.lineicons.com/2.0/LineIcons.css"
-            rel="stylesheet"
-          />
+          /> 
           {/* <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"

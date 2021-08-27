@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { isMobile } from "react-device-detect";
 
+import LeftBtn from "../public/svgs/chevron-left.svg";
+import RightBtn from "../public/svgs/chevron-right.svg";
+
 const Testimonials = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   // for server side rendering
@@ -44,6 +47,17 @@ const Testimonials = () => {
         "Whoever wishes to attain an English style, familiar but not coarse, and elegant but not ostentatious, must give his days and nights...",
     },
   ];
+
+  const PrevButton = () => (
+        <LeftBtn
+          aria-label="Previous testimonial"
+        />
+    );
+  const NextButton = () => (
+        <RightBtn
+          aria-label="Next testimonial"
+        />
+    );
 
   const variants = {
     enter: (direction) => {
@@ -170,11 +184,11 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="testimonials">
-      <button className="prevButton icon-left" onClick={() => paginate(-1)}>
-        <i className="lni lni-chevron-left"></i>
+      <button className="prevButton icon-left" aria-label="Left Button" onClick={() => paginate(-1)}>
+        <PrevButton />
       </button>
-      <button className="nextButton icon-right" onClick={() => paginate(1)}>
-        <i className="lni lni-chevron-right"></i>
+      <button className="nextButton icon-right" aria-label="Right Button" onClick={() => paginate(1)}>
+        <NextButton />
       </button>
       <div className="text">
         <div className="wrapper">

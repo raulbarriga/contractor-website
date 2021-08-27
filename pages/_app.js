@@ -13,9 +13,9 @@ const MyApp = ({ Component, pageProps }) => {
     <Head>
     <meta
             name="viewport"
-            content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+            content="width=device-width,initial-scale=1"
           />
-<title>JB & B Construction, Inc.</title>
+<title>JB & B Construction, Inc. | Serving the Greater San Francisco Bay Area and Its Surroundings.</title>
     </Head>
     <Component {...pageProps} />
     </>)
