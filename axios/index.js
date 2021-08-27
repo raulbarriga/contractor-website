@@ -1,8 +1,9 @@
 import axios from "axios";
 
 // development server url:
-const url = "http://localhost:8000/api/contactForm";
+// const url = "http://localhost:8000/api/contactForm";
 // deployment server url:
+const url = "https://jbb-contractor.herokuapp.com/";
 
 
 export const sendForm = async (contactData) => {
