@@ -50,11 +50,19 @@ const Testimonials = () => {
 
   const PrevButton = () => (
         <LeftBtn
+        style={{
+          height: '29px',
+          width: '29px'
+        }}
           aria-label="Previous testimonial"
         />
     );
   const NextButton = () => (
         <RightBtn
+        style={{
+          height: '29px',
+          width: '29px'
+        }}
           aria-label="Next testimonial"
         />
     );
