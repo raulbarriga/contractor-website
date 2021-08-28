@@ -11,7 +11,7 @@
     "dev": "next",
     "server": "nodemon server/server.mjs",
     "build": "next build",
-    "start": "NODE_ENV=production node server/server.mjs -p $PORT && next start",
+    "start": "NODE_ENV=production node server/server.mjs -p $PORT & next start",
     "lint": "next lint",
     "concurrent": "concurrently \"npm run server\" \"npm run dev\""
   },
