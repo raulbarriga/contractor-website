@@ -20,7 +20,8 @@ export const sendForm = async (contactData) => {
         
         }
       } catch (error) {
-        console.error(error);
+        console.log(error.response);
+        return error.response;
       }
   
     //   console.log(contactData);
