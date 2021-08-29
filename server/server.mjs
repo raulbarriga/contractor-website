@@ -17,7 +17,11 @@ app
   .then(() => {
     const server = express();
 
-    server.use(morgan("dev"));
+    if (process.env.NODE_ENV !== 'production') {
+      server.use(morgan("dev"));
+    } else {
+      server.use(logger('combined'));
+    }
     server.use(express.json());
     server.use(cors());
 
