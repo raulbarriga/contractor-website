@@ -17,7 +17,8 @@ export const sendForm = async (contactData) => {
             // console.log("frontend: ", response);
         
           console.log('Success!'); // can also add reset() here to reset the form
-        
+          console.log('response: ', response); // can also add reset() here to reset the form
+        return response;
         }
       } catch (error) {
         console.log(error.response);
