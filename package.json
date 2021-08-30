@@ -10,7 +10,7 @@
     "dev": "next",
     "server": "nodemon server/server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server/server.js -p $PORT & next start",
+    "start": "NODE_ENV=production node server/server.js & next start",
     "lint": "next lint",
     "concurrent": "concurrently \"npm run server\" \"npm run dev\""
   },
