@@ -1,5 +1,5 @@
 import express from "express";
-import morgan from "morgan";
+// import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
 import next from "next";
@@ -17,11 +17,11 @@ app
   .then(() => {
     const server = express();
 
-    if (process.env.NODE_ENV !== 'production') {
-      server.use(morgan("dev"));
-    } else {
-      server.use(logger('combined'));
-    }
+    // if (process.env.NODE_ENV !== 'production') {
+    //   server.use(morgan("dev"));
+    // } else {
+    //   server.use(logger('combined'));
+    // }
     server.use(express.json());
     server.use(cors());
 
