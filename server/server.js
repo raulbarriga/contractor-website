@@ -1,8 +1,8 @@
-import express from "express";
-// import morgan from "morgan";
-import dotenv from "dotenv";
-import cors from "cors";
-import next from "next";
+const express = require("express");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const next = require("next");
 
 dotenv.config();
 const dev = process.env.NODE_ENV !== "production";
@@ -10,18 +10,18 @@ const port = process.env.PORT || 8000;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-import formRoute from "./routes/formRoute.mjs";
+const formRoute = require("./routes/formRoute.js");
 
 app
   .prepare()
   .then(() => {
     const server = express();
 
-    // if (process.env.NODE_ENV !== 'production') {
-    //   server.use(morgan("dev"));
-    // } else {
-    //   server.use(logger('combined'));
-    // }
+    if (process.env.NODE_ENV !== 'production') {
+      server.use(morgan("dev"));
+    } else {
+      server.use(logger('combined'));
+    }
     server.use(express.json());
     server.use(cors());
 

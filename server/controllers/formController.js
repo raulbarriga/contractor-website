@@ -1,5 +1,4 @@
-// const nodemailer = require("nodemailer");
-import nodemailer from "nodemailer";
+const nodemailer = require("nodemailer");
 
 const formPost = (req, res) => {
   // this will be the contact form details sent from the contact form
@@ -67,5 +66,4 @@ const formPost = (req, res) => {
   
 };
 
-// module.exports = formPost;
-export default formPost;
+module.exports = formPost;
