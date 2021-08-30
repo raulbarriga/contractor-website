@@ -19,10 +19,6 @@ const formPost = (req, res) => {
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       accessToken: process.env.OAUTH_ACCESS_TOKEN
     },
-    // ,
-    // tls: {// for when using localhost instead of domain
-    //   rejectUnauthorized: false
-    // }
   });
 
   let htmlOutput = `
@@ -60,7 +56,7 @@ const formPost = (req, res) => {
       console.log("Error: ", error);
       res.send("error");
     } else {
-      console.log("Email sent: ", info.response);
+      console.log("Email sent: ", info);
       res.send("Email Sent Successfully!");
     }
     // console.log('Message sent: %s', info.messageId);

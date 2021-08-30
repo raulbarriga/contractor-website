@@ -8,11 +8,7 @@ const url = "https://jbb-contractor.herokuapp.com/api/contactForm";
 
 export const sendForm = async (contactData) => {
     try {
-        const response = await axios.post(url, contactData, {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        });
+        const response = await axios.post(url, contactData);
         if (response.data.status === 200) {
             // console.log("frontend: ", response);
         
@@ -21,9 +17,7 @@ export const sendForm = async (contactData) => {
         return response;
         }
       } catch (error) {
-        console.log(error.response);
+        console.log("error.response: ", error.response);
         return error.response;
       }
-  
-    //   console.log(contactData);
   };
