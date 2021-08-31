@@ -1,9 +1,10 @@
 import axios from "axios";
 
 // development server url:
-// const url = "http://localhost:8000/api/contactForm";
+// using only the Next.js server
+const url = "http://localhost:3000/api/contactForm";
 // deployment server url:
-const url = "https://jbb-contractor.herokuapp.com/api/contactForm";
+// const url = "https://jbb-contractor.herokuapp.com/api/contactForm";
 
 
 export const sendForm = async (contactData) => {
