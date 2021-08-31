@@ -1,4 +1,4 @@
-export default function async (req, res) {
+export default function (req, res) {
   require("dotenv").config();
 
   const nodemailer = require("nodemailer");
@@ -46,19 +46,6 @@ export default function async (req, res) {
       },
     });
 
-    await new Promise((resolve, reject) => {
-        // verify connection configuration
-        transporter.verify(function (error, success) {
-            if (error) {
-                console.log(error);
-                reject(error);
-            } else {
-                console.log("Server is ready to take our messages");
-                resolve(success);
-            }
-        });
-    });
-
     return transporter;
   };
 
@@ -95,26 +82,7 @@ export default function async (req, res) {
     await emailTransporter.sendMail(mailOptions);
   };
 
-  const finalStep =  async () => {
-      await new Promise((resolve, reject) => {
-    // send mail
-    // transporter.sendMail(mailData, (err, info) => {
-    //     if (err) {
-    //         console.error(err);
-    //         reject(err);
-    //     } else {
-    //         console.log(info);
-    //         resolve(info);
-    //     }
-    // });
-
-    sendMail(mailOptions);
-});
-  }
-
-  
-
   console.log(req.body);
-  finalStep()
+  sendMail(mailOptions);
   res.send("Email Sent Successfully!");
 }
