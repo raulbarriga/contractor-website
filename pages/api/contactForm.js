@@ -115,9 +115,8 @@ export default function async (req, res) {
 });
   }
 
-  
-
-  console.log(req.body);
+//   console.log(req.body);
   finalStep()
-  res.send("Email Sent Successfully!");
+  res
+    .send("Email Sent Successfully!");
 }

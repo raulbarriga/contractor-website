@@ -25,12 +25,19 @@ const ContactUs = () => {
 
   const onSubmitForm = async (formValues, event) => {
     event.preventDefault();
-    setSubmit(true);
     // console.log("formValues: ", formValues);
     sendForm(formValues);
+    setSubmit(true);
     reset();
     setFadeOut(true);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('This will run a timeout!')
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [submit]);
 
   const onBlurHandler = (e) => {
     const inputHighlight = e.target;
