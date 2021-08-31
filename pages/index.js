@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {useEvent} from 'react-use'
-// import dynamic from "next/dynamic";
 
 import ScrollToTop from "../components/ScrollToTop";
 import Header from "../components/Header";
@@ -21,7 +20,6 @@ const App = () => {
   const [showNavBtn, setShowNavBtn] = useState(false);
   
   // from the custom hook in the util folder
-  // const useWindowWidth = dynamic(() => import('../hooks/useCurrentWidth'), { ssr: false })
   let viewportWidth = useWindowWidth(); // returns the current viewport width
   // console.log(`${viewportWidth}`)
   
