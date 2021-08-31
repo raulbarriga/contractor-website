@@ -35,7 +35,9 @@ export default function async (req, res) {
     });
 
     let transporter = nodemailer.createTransport({
-      service: "gmail",
+    //   service: "gmail",
+    port: 465,     
+      host: "smtp.gmail.com",
       auth: {
         type: "OAuth2",
         user: process.env.MAIL_USERNAME, // this will be the email that will receive the sent emails from the contact form
@@ -44,6 +46,7 @@ export default function async (req, res) {
         clientSecret: process.env.OAUTH_CLIENT_SECRET,
         refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       },
+      secure: true
     });
 
     await new Promise((resolve, reject) => {
