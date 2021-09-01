@@ -50,19 +50,21 @@ const Testimonials = () => {
 
   const PrevButton = () => (
         <LeftBtn
-        style={{
-          height: '29px',
-          width: '29px'
-        }}
+        // style={{
+        //   height: '29px',
+        //   width: '29px'
+        // }}
+        className="left-svg"
           aria-label="Previous testimonial"
         />
     );
   const NextButton = () => (
         <RightBtn
-        style={{
-          height: '29px',
-          width: '29px'
-        }}
+        className="right-svg"
+        // style={{
+        //   height: '29px',
+        //   width: '29px'
+        // }}
           aria-label="Next testimonial"
         />
     );
@@ -192,11 +194,12 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="testimonials">
-      <button className="prevButton icon-left" aria-label="Left Button" onClick={() => paginate(-1)}>
-        <PrevButton />
+      <button 
+      className="prevButton icon-left" aria-label="Left Button" onClick={() => paginate(-1)}>
+        <PrevButton className="" />
       </button>
       <button className="nextButton icon-right" aria-label="Right Button" onClick={() => paginate(1)}>
-        <NextButton />
+        <NextButton className="" />
       </button>
       <div className="text">
         <div className="wrapper">

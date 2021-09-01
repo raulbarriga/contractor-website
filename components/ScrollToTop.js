@@ -22,8 +22,7 @@ export default function ScrollToTop() {
           style={{ cursor: mobile ? "none" : "pointer"}} 
     >
         <div onClick={scrollToTop}>
-          <GrUp size="large" 
-          />
+          <GrUp />
         </div>
     </div>
   );
