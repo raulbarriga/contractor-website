@@ -1,11 +1,11 @@
-// export this from the api route
+// export this from the api route to remove api unnecessary warning
 export const config = {
   api: {
     externalResolver: true,
   },
-}
+};
 
-export default function async (req, res) {
+export default function async(req, res) {
   require("dotenv").config();
 
   const nodemailer = require("nodemailer");
@@ -21,7 +21,7 @@ export default function async (req, res) {
 
   // from https://dev.to/chandrapantachhetri/sending-emails-securely-using-node-js-nodemailer-smtp-gmail-and-oauth2-g3a?signin=true
   const createTransporter = async () => {
-      // Creates the OAuth client & provides it with the refresh token:
+    // Creates the OAuth client & provides it with the refresh token:
     const oauth2Client = new OAuth2(
       process.env.OAUTH_CLIENTID,
       process.env.OAUTH_CLIENT_SECRET,
@@ -43,8 +43,8 @@ export default function async (req, res) {
 
     let transporter = nodemailer.createTransport({
       service: "gmail",
-    // port: 465,     
-    //   host: "smtp.gmail.com",
+      // port: 465,
+      //   host: "smtp.gmail.com",
       auth: {
         type: "OAuth2",
         user: process.env.MAIL_USERNAME, // this will be the email that will receive the sent emails from the contact form
@@ -53,21 +53,8 @@ export default function async (req, res) {
         clientSecret: process.env.OAUTH_CLIENT_SECRET,
         refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       },
-      secure: true
+      secure: true,
     });
-
-    // await new Promise((resolve, reject) => {
-    //     // verify connection configuration
-    //     transporter.verify(function (error, success) {
-    //         if (error) {
-    //             console.log(error);
-    //             reject(error);
-    //         } else {
-    //             console.log("Server is ready to take our messages");
-    //             resolve(success);
-    //         }
-    //     });
-    // });
 
     return transporter;
   };
@@ -101,38 +88,19 @@ export default function async (req, res) {
   };
 
   const sendMail = async (mailOptions) => {
-      try {
-        let emailTransporter = await createTransporter();
-        const emailResponse = await emailTransporter.sendMail(mailOptions);
-        // console.log( "emailResponse: ",emailResponse);
-        if (emailResponse.accepted) {
-            res.status(200).send("Successfull email!");
-            return emailResponse;
-        }
+    try {
+      let emailTransporter = await createTransporter();
+      const emailResponse = await emailTransporter.sendMail(mailOptions);
+
+      if (emailResponse.accepted) {
+        res.status(200).send("Successfull email!");
+        return emailResponse;
+      }
     } catch (error) {
-        console.log(error);
-        return error;
+      console.log(error);
+      return error;
     }
   };
 
-//   const finalStep =  async () => {
-    //   await new Promise((resolve, reject) => {
-    // send mail
-    // transporter.sendMail(mailData, (err, info) => {
-    //     if (err) {
-    //         console.error(err);
-    //         reject(err);
-    //     } else {
-    //         console.log(info);
-    //         resolve(info);
-    //     }
-    // });
-
-    // });
-    //   }
-    
-    sendMail(mailOptions);
-//   console.log(req.body);
-//   finalStep()
-  
+  sendMail(mailOptions);
 }
