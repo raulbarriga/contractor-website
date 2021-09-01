@@ -32,13 +32,6 @@ const ContactUs = () => {
     setFadeOut(true);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('This will run a timeout!')
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [submit]);
-
   const onBlurHandler = (e) => {
     const inputHighlight = e.target;
 

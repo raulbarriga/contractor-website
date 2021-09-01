@@ -2,9 +2,9 @@ import axios from "axios";
 
 // development server url:
 // using only the Next.js server
-// const url = "http://localhost:3000/api/contactForm";
+const url = "http://localhost:3000/api/contactForm";
 // deployment server url:
-const url = "https://tio-jorge-website.vercel.app/api/contactForm";
+// const url = "https://tio-jorge-website.vercel.app/api/contactForm";
 
 
 export const sendForm = async (contactData) => {
