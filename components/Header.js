@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Fade as Hamburger } from "hamburger-react";
 import { AnimatePresence } from "framer-motion";
 import { useLockBodyScroll } from "react-use";
 import Image from 'next/image';

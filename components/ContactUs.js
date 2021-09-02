@@ -25,7 +25,7 @@ const ContactUs = () => {
 
   const onSubmitForm = async (formValues, event) => {
     event.preventDefault();
-    // console.log("formValues: ", formValues);
+    
     sendForm(formValues);
     setSubmit(true);
     reset();

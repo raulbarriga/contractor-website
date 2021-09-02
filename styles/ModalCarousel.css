@@ -51,7 +51,7 @@
     fill: rgb(229, 229, 228);
   }
   
-  .modal-container .slider .btn:hover svg polyline {
+  .modal-container .slider .btn:hover svg path {
     stroke: rgb(229, 229, 228);
     transition: stroke 0.5s ease-in-out;
   }
@@ -60,7 +60,7 @@
   border: 1.5px solid black;
   }
   
-  .modal-container .slider .btn:visited svg polyline {
+  .modal-container .slider .btn:visited svg path {
   stroke: black;
   } */
   
@@ -69,12 +69,12 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   
-  .modal-container .slider .btn svg polyline {
+  .modal-container .slider .btn svg path {
     stroke-width: 1.5px;
     /* stroke-width: 3px; */
   }
   
-  /* .modal-container .slider .btn svg polyline:hover {
+  /* .modal-container .slider .btn svg path:hover {
     stroke: rgb(229, 229, 228);
   } */
   
@@ -241,7 +241,7 @@
       border: 1.5px solid rgb(229, 229, 228);
     }
   
-    .modal-container .slider .btn svg polyline {
+    .modal-container .slider .btn svg path {
       stroke: rgb(229, 229, 228);
     }
   
@@ -252,7 +252,7 @@
       fill: black;
     } */
   
-    .modal-container .slider .btn:hover svg polyline {
+    .modal-container .slider .btn:hover svg path {
       stroke: black;
     }
   

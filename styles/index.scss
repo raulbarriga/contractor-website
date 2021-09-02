@@ -55,7 +55,7 @@
         width: 29px;
         margin: 0 auto;
 
-        polyline {
+        path {
           stroke: #e5e5e4;
           stroke-width: 2px;
           display: block;
@@ -589,7 +589,7 @@
         .left-svg,
         .right-svg {
           width: 29px;
-        height: 29px;
+          height: 29px;
         }
 
         &:active,
@@ -629,12 +629,18 @@
           height: 100%;
           color: black;
 
-          .ri-double-quotes-r {
+          .remix-icon-double-quotes {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 33px;
             margin-top: 10px;
+
+            svg {
+              font-size: 3em;
+              height: 1em;
+              width: 1em;
+            }
           }
           p {
             font: normal normal normal 15px/1.875em "Nunito", sans-serif;

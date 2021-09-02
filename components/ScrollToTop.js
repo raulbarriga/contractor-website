@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { GrUp } from "react-icons/gr"
 import { isMobile } from "react-device-detect";
+
+import GrUp from "../public/svgs/gr-up.svg";
 
 export default function ScrollToTop() {
   const [mobile, setMobile] = useState();

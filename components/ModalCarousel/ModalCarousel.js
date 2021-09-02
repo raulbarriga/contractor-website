@@ -1,15 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import {
-  GrClose,
-  GrExpand,
-  GrPrevious,
-  GrNext,
-  // GrContract
-} from "react-icons/gr";
 import { motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { useEvent, useFullscreen, useToggle } from "react-use";
 import { isMobile } from "react-device-detect";
+
+import GrExpand from "../../public/svgs/gr-expand.svg";
+import GrClose from "../../public/svgs/gr-close.svg";
+import GrPrevious from "../../public/svgs/gr-previous.svg";
+import GrNext from "../../public/svgs/gr-next.svg";
 
 const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
   const [currentImg, setCurrentImg] = useState(selectedImg - 1);

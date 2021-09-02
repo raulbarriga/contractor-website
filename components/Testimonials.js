@@ -5,6 +5,7 @@ import { isMobile } from "react-device-detect";
 
 import LeftBtn from "../public/svgs/chevron-left.svg";
 import RightBtn from "../public/svgs/chevron-right.svg";
+import DoubleQuotes from "../public/svgs/ri-double-quotes.svg";
 
 const Testimonials = () => {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -14,7 +15,7 @@ const Testimonials = () => {
   useEffect(() => {
     setMobile(isMobile);
   }, [setMobile]);
-  
+
   const quotesArr = [
     {
       key: 1,
@@ -47,27 +48,6 @@ const Testimonials = () => {
         "Whoever wishes to attain an English style, familiar but not coarse, and elegant but not ostentatious, must give his days and nights...",
     },
   ];
-
-  const PrevButton = () => (
-        <LeftBtn
-        // style={{
-        //   height: '29px',
-        //   width: '29px'
-        // }}
-        className="left-svg"
-          aria-label="Previous testimonial"
-        />
-    );
-  const NextButton = () => (
-        <RightBtn
-        className="right-svg"
-        // style={{
-        //   height: '29px',
-        //   width: '29px'
-        // }}
-          aria-label="Next testimonial"
-        />
-    );
 
   const variants = {
     enter: (direction) => {
@@ -146,7 +126,9 @@ const Testimonials = () => {
             }
           }}
         >
-          <i className="ri-double-quotes-r ri-3x"></i>
+          <div className="remix-icon-double-quotes">
+          <DoubleQuotes aria-label="Next testimonial" />
+          </div>
           <p>{quotesArr[objIndex].quote}</p>
           <h2>{quotesArr[objIndex].client}</h2>
         </motion.div>
@@ -194,12 +176,19 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="testimonials">
-      <button 
-      className="prevButton icon-left" aria-label="Left Button" onClick={() => paginate(-1)}>
-        <PrevButton className="" />
+      <button
+        className="prevButton icon-left"
+        aria-label="Left Button"
+        onClick={() => paginate(-1)}
+      >
+        <LeftBtn className="left-svg" aria-label="Previous testimonial" />
       </button>
-      <button className="nextButton icon-right" aria-label="Right Button" onClick={() => paginate(1)}>
-        <NextButton className="" />
+      <button
+        className="nextButton icon-right"
+        aria-label="Right Button"
+        onClick={() => paginate(1)}
+      >
+        <RightBtn className="right-svg" aria-label="Next testimonial" />
       </button>
       <div className="text">
         <div className="wrapper">
