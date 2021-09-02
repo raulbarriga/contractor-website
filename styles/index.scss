@@ -97,7 +97,8 @@
         text-align: center;
         font-size: 22px;
         font-style: normal;
-        font-family: "Barlow";
+        font-family: "Barlow", sans-serif;
+        font-display: swap;
         font-weight: 500;
 
         a {
@@ -156,8 +157,16 @@
             color: rgb(25, 25, 25);
 
             p {
-              font: normal normal normal 14px/1.79em "nutino", sans-serif;
-              line-height: 30px;
+              font-style: normal;
+              font-variant-ligatures: normal;
+              font-variant-caps: normal;
+              font-variant-numeric: normal;
+              font-variant-east-asian: normal;
+              font-stretch: normal;
+              font-size: 14px;
+              line-height: 1.79em;
+              font-family: "Nutino", sans-serif;
+              font-display: swap;
               font-weight: 300;
 
               @include bp-devices {
@@ -299,16 +308,30 @@
         h2 {
           margin-top: 122px;
           margin-bottom: 42px;
-          font-size: 40px;
           text-align: center;
+          font-style: normal;
+          font-variant-ligatures: normal;
+          font-variant-caps: normal;
+          font-variant-numeric: normal;
+          font-variant-east-asian: normal;
+          font-stretch: normal;
+          font-family: "Barlow", sans-serif;
+          font-display: swap;
+          font-size: 40px;
           line-height: 1.35em;
-          font: normal normal normal 40px/1.35em "barlow", sans-serif;
           font-weight: 500;
         }
 
         p {
           width: 780px;
-          font: normal normal normal 18px/1.75em "Nunito", sans-serif;
+          font-style: normal;
+          font-variant-ligatures: normal;
+          font-variant-caps: normal;
+          font-variant-numeric: normal;
+          font-variant-east-asian: normal;
+          font-stretch: normal;
+          font-family: "Nutino", sans-serif;
+          font-display: swap;
           margin: 0 auto 32px auto;
           text-align: center;
           line-height: 1.75em;
@@ -395,7 +418,14 @@
         margin: 122px auto 32px auto;
         text-align: center;
         line-height: 1.35em;
-        font: normal normal normal 40px/1.35em "barlow", sans-serif;
+        font-style: normal;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        font-variant-numeric: normal;
+        font-variant-east-asian: normal;
+        font-stretch: normal;
+        font-family: "Barlow", sans-serif;
+        font-display: swap;
         font-weight: 500;
         font-size: 40px;
         height: auto;
@@ -404,10 +434,17 @@
 
       p {
         text-align: center;
-        font: normal normal normal 18px/1.75em "Nunito", sans-serif;
         font-weight: 100;
         line-height: 1.875em;
         font-size: 18px;
+        font-style: normal;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        font-variant-numeric: normal;
+        font-variant-east-asian: normal;
+        font-stretch: normal;
+        font-family: "Nutino", sans-serif;
+        font-display: swap;
         margin-bottom: 10px;
       }
 
@@ -546,7 +583,17 @@
         line-height: 138px;
         button {
           cursor: pointer;
-          font: normal normal normal 18px/1.75em "barlow", sans-serif;
+          font-style: normal;
+          font-variant-ligatures: normal;
+          font-variant-caps: normal;
+          font-variant-numeric: normal;
+          font-variant-east-asian: normal;
+          font-stretch: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 1.75em;
+          font-family: "Barlow", sans-serif;
+          font-display: swap;
           color: rgba(0, 0, 0, 0.9);
           padding: 11px 29px;
           background: rgb(229, 229, 228);
@@ -554,6 +601,7 @@
           padding: 11px 29px;
           border-radius: 0;
           border-color: black;
+
           &:focus,
           &:active {
             outline: none;
@@ -643,7 +691,15 @@
             }
           }
           p {
-            font: normal normal normal 15px/1.875em "Nunito", sans-serif;
+            font-style: normal;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-family: "Nutino", sans-serif;
+            font-display: swap;
             text-align: center;
             line-height: 1.875em;
             font-size: 15px;
@@ -652,11 +708,18 @@
           }
 
           h2 {
-            font: normal normal normal 18px/1.75em "Nunito", sans-serif;
+            font-style: normal;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-stretch: normal;
+            font-family: "Nutino", sans-serif;
+            font-display: swap;
             font-weight: 100;
-            text-align: center;
-            line-height: 1.75em;
             font-size: 18px;
+            line-height: 1.75em;
+            text-align: center;
           }
         }
       }
@@ -740,10 +803,16 @@
 
       .form-title {
         h2 {
-          font-family: "Barlow";
+          font-family: "Barlow", sans-serif;
+          font-display: swap;
           font-size: 40px;
           line-height: 1.35em;
-          // font: normal normal normal 40px/1.35em "Barlow", sans-serif;
+          font-style: normal;
+          font-variant-ligatures: normal;
+          font-variant-caps: normal;
+          font-variant-numeric: normal;
+          font-variant-east-asian: normal;
+          font-stretch: normal;
           font-weight: 500;
           color: black;
           margin: 0 0 30px 0;
@@ -759,8 +828,9 @@
           font-weight: 100;
           font-size: 0.9377rem;
           font-family: "Barlow", sans-serif;
+          font-display: swap;
           line-height: 1.875em;
-          color: #1e2025; // --color-15
+          color: #1e2025; //
           padding: 0 5px;
         }
       }
@@ -807,7 +877,16 @@
             }
           }
           .inputs {
-            font: normal normal normal 15px/1.875em "Barlow", sans-serif;
+            font-style: normal;
+            font-variant-ligatures: normal;
+            font-variant-caps: normal;
+            font-variant-numeric: normal;
+            font-variant-east-asian: normal;
+            font-stretch: normal;
+            font-size: 15px;
+            line-height: 1.875em;
+            font-family: "Barlow", sans-serif;
+            font-display: swap;
             font-weight: 100;
             background-color: #e5e5e4;
             text-overflow: ellipsis;
@@ -844,7 +923,16 @@
               all: unset;
               width: 195px;
               height: 70px;
-              font: normal normal normal 18px/1.75em "Barlow", sans-serif;
+              font-style: normal;
+              font-variant-ligatures: normal;
+              font-variant-caps: normal;
+              font-variant-numeric: normal;
+              font-variant-east-asian: normal;
+              font-stretch: normal;
+              font-size: 18px;
+              line-height: 1.75em;
+              font-family: "Barlow", sans-serif;
+              font-display: swap;
               font-weight: 100;
               color: #fff;
               background-color: rgb(30, 32, 37);
@@ -876,7 +964,16 @@
           .btn-msg {
             margin-bottom: 24px;
             p {
-              font: normal normal normal 18px/1.75em "playfair display", serif;
+              font-style: normal;
+              font-variant-ligatures: normal;
+              font-variant-caps: normal;
+              font-variant-numeric: normal;
+              font-variant-east-asian: normal;
+              font-weight: normal;
+              font-stretch: normal;
+              line-height: 1.75em;
+              font-family: "playfair display", sans-serif;
+              font-display: swap;
               text-align: center;
               font-size: 18px;
               color: rgb(30, 32, 37);
