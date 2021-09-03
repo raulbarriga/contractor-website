@@ -6,6 +6,7 @@ import Image from "next/image";
 import { sendForm } from "../axios/index";
 import ContactUsImage from "../public/images/formImage.jpg";
 
+
 const ContactUs = () => {
   // for ssr
   const [mobile, setMobile] = useState();

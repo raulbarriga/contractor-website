@@ -1,10 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
+import dynamic from 'next/dynamic';
 
 import { servicesData } from "./data/servicesData";
 import LeftBtn from "../public/svgs/leftArrow.svg";
 import RightBtn from "../public/svgs/rightArrow.svg";
-import Card from "./Card/Card";
+// import Card from "./Card/Card";
+const Card = dynamic(() => import('./Card/Card'));
 
 const Services = () => {
   const PrevButton = ({ className, style, onClick }) => {

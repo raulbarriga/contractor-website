@@ -1,11 +1,8 @@
 import axios from "axios";
 
-// development server url:
-// using only the Next.js server
-// const url = "http://localhost:3000/api/contactForm";
-// deployment server url:
-const url = "https://tio-jorge-website.vercel.app/api/contactForm";
-
+let url = "";
+process.env.NODE_ENV === 'development' ? (url = "http://localhost:3000/api/contactForm") : process.env.NODE_ENV === 'production' ? (url = "https://tio-jorge-website.vercel.app/api/contactForm") : console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
+console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
 
 export const sendForm = async (contactData) => {
     try {

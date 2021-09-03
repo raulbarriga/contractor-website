@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useLockBodyScroll } from "react-use";
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import { galleryData } from "./data/galleryData";
-import ModalCarousel from "./ModalCarousel/ModalCarousel.jsx";
+// import ModalCarousel from "./ModalCarousel/ModalCarousel.jsx";
+
+const ModalCarousel = dynamic(() => import('./ModalCarousel/ModalCarousel'));
 
 const Gallery = ({
   visibleImages,

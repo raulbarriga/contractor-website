@@ -1,33 +1,46 @@
 import React, { useState, useEffect } from "react";
-import {useEvent} from 'react-use'
+import { useEvent } from "react-use";
+import dynamic from "next/dynamic";
 
-import ScrollToTop from "../components/ScrollToTop";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Welcome from "../components/Welcome";
-import About from "../components/About";
-import Services from "../components/Services";
-import Gallery from "../components/Gallery";
-import Testimonials from "../components/Testimonials";
-import ContactUs from "../components/ContactUs";
+// import Header from "../components/Header";
+// import ScrollToTop from "../components/ScrollToTop";
 import useWindowWidth from "../hooks/useWindowWidth";
+// import Welcome from "../components/Welcome";
+// import About from "../components/About";
+// import Services from "../components/Services";
+// import Gallery from "../components/Gallery";
+// import Testimonials from "../components/Testimonials";
+// import ContactUs from "../components/ContactUs";
+// import Footer from "../components/Footer";
+
+// let useWindowWidth = dynamic(() => import("../hooks/useWindowWidth.jsx"), { ssr: false });
+const Header = dynamic(() => import("../components/Header.jsx"));
+const ScrollToTop = dynamic(() => import("../components/ScrollToTop"));
+const Welcome = dynamic(() => import("../components/Welcome.jsx"));
+const About = dynamic(() => import("../components/About.jsx"));
+const Services = dynamic(() => import("../components/Services.jsx"));
+const Gallery = dynamic(() => import("../components/Gallery.jsx"));
+const Testimonials = dynamic(() => import("../components/Testimonials.jsx"));
+const ContactUs = dynamic(() => import("../components/ContactUs.jsx"));
+const Footer = dynamic(() => import("../components/Footer.jsx"));
+
 
 const App = () => {
   // for the scroll-to-top button visibility
   const [isToTopVisible, setIsToTopVisible] = useState(false);
-  
+
   // for the hamburger nav menu button
   const [showNavBtn, setShowNavBtn] = useState(false);
-  
+
   // from the custom hook in the util folder
-  let viewportWidth = useWindowWidth(); // returns the current viewport width
-  // console.log(`${viewportWidth}`)
-  
+let viewportWidth = useWindowWidth(); // returns the current viewport width
+// console.log(`${viewportWidth}`);
+
   // number of images to show in Gallery based on breakpoints 650, 839, 1200px
   const [visibleImages, setVisibleImages] = useState(
     `${viewportWidth}` <= 1200 && `${viewportWidth}` >= 840 ? 3 : 4
   );
-  
+
   // to set the correct # of images per row when resizing the browser
   const [count4TotalImgsPerRow, setCount4TotalImgsPerRow] = useState(4);
   const [count3TotalImgsPerRow, setCount3TotalImgsPerRow] = useState(3);
@@ -56,7 +69,7 @@ const App = () => {
       setShowNavBtn(false);
     }
 
-        // CSS breakpoint for Gallery ()
+    // CSS breakpoint for Gallery ()
     if (`${viewportWidth}` <= 1200 && `${viewportWidth}` >= 840) {
       if (count3TotalImgsPerRow !== visibleImages) {
         setVisibleImages((prevImgValue) => {
@@ -76,13 +89,12 @@ const App = () => {
         });
       }
     }
-    
   }, [
     viewportWidth,
     visibleImages,
     setVisibleImages,
     count4TotalImgsPerRow,
-    count3TotalImgsPerRow
+    count3TotalImgsPerRow,
   ]);
 
   // console.log("viewportWidth: ", `${viewportWidth}`);
