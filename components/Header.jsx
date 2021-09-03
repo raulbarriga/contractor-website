@@ -18,7 +18,7 @@ const Header = ({ showNavBtn, viewportWidth }) => {
 
   // server side rendering support for a node_modules package (has to be dynamically imported according the next.js docs)
   const Hamburger = dynamic(
-    () => import("hamburger-react"),
+    () => import("hamburger-react").then(mod => mod.Fade).catch(error => console.log(error)),
     { ssr: false }
   )
 

@@ -2,11 +2,19 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { isMobile } from "react-device-detect";
+// import dynamic from "next/dynamic";
 
 import LeftBtn from "../public/svgs/chevron-left.svg";
 import RightBtn from "../public/svgs/chevron-right.svg";
 import DoubleQuotes from "../public/svgs/ri-double-quotes.svg";
-
+  // const wrap = dynamic(
+  //    () => {
+  //     const { wrap } = import("popmotion");
+  //     return wrap;
+  //   },
+  //   { ssr: false }
+  //   );
+  //   console.log("wrap: ", wrap);
 const Testimonials = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   // for server side rendering

@@ -3,7 +3,7 @@ import { useLockBodyScroll } from "react-use";
 import Image from 'next/image';
 
 import { galleryData } from "./data/galleryData";
-import ModalCarousel from "./ModalCarousel/ModalCarousel.js";
+import ModalCarousel from "./ModalCarousel/ModalCarousel.jsx";
 
 const Gallery = ({
   visibleImages,
