@@ -4,7 +4,6 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 import { galleryData } from "./data/galleryData";
-// import ModalCarousel from "./ModalCarousel/ModalCarousel.jsx";
 
 const ModalCarousel = dynamic(() => import('./ModalCarousel/ModalCarousel'));
 

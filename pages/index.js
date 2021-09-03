@@ -2,18 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useEvent } from "react-use";
 import dynamic from "next/dynamic";
 
-// import Header from "../components/Header";
-// import ScrollToTop from "../components/ScrollToTop";
 import useWindowWidth from "../hooks/useWindowWidth";
-// import Welcome from "../components/Welcome";
-// import About from "../components/About";
-// import Services from "../components/Services";
-// import Gallery from "../components/Gallery";
-// import Testimonials from "../components/Testimonials";
-// import ContactUs from "../components/ContactUs";
-// import Footer from "../components/Footer";
 
-// let useWindowWidth = dynamic(() => import("../hooks/useWindowWidth.jsx"), { ssr: false });
 const Header = dynamic(() => import("../components/Header.jsx"));
 const ScrollToTop = dynamic(() => import("../components/ScrollToTop"));
 const Welcome = dynamic(() => import("../components/Welcome.jsx"));
