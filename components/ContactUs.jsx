@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { sendForm } from "../axios/index";
 import ContactUsImage from "../public/images/formImage.jpg";
+import * as gtag from "../lib/gtag";
 
 
 const ContactUs = () => {
@@ -28,6 +29,12 @@ const ContactUs = () => {
     event.preventDefault();
     
     sendForm(formValues);
+    gtag.event({
+      action: "submit_form", 
+      category: "contact_form", 
+      label: "Form Submitted", 
+      value: true
+    })
     setSubmit(true);
     reset();
     setFadeOut(true);
