@@ -39,7 +39,7 @@ const ContactUs = () => {
     reset();
     setFadeOut(true);
     // reload browser 6 seconds after it's submitted
-    setTimeout(() => window.location.reload(), 6000);
+    // setTimeout(() => window.location.reload(), 6000);
   };
 
   const onBlurHandler = (e) => {
