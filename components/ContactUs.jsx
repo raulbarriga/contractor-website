@@ -91,10 +91,7 @@ const ContactUs = () => {
               // name="firstName"
               type="text"
               {...register("first-name", {
-                required: {
-                  value: true,
-                  message: "You must enter your name",
-                },
+                required: "You must enter your name"
               })}
               maxLength="100"
               placeholder="First Name"
@@ -126,15 +123,14 @@ const ContactUs = () => {
               // name="email"
               type="email"
               {...register("email", {
-                required: {
-                  value: true,
-                  pattern:
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                required: "You must enter a valid email",
+                pattern: {
+                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                   message: "You must enter a valid email",
                 },
               })}
               maxLength="250"
-              // required // to trigger our message I might have to comment this out/remove it
+              // required // if I use this, the browser will show the error, not me
               placeholder="Email"
             />
           </div>
@@ -144,13 +140,8 @@ const ContactUs = () => {
               // name="phone"
               type="tel"
               {...register("phone", {
-                required: {
-                  value: true,
-                  pattern: /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/,
-                  message: "You must enter your phone number",
-                },
+                required: "You must enter your phone number"
               })}
-              maxLength="10"
               placeholder="Phone"
             />
           </div>
@@ -186,10 +177,7 @@ const ContactUs = () => {
               className="inputs"
               // name="message"
               {...register("message", {
-                required: {
-                  value: true,
-                  message: "You must enter your message",
-                },
+                required: "You must enter your message"
               })}
               placeholder="Message"
             ></textarea>
