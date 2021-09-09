@@ -29,3 +29,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# for service account or google analytics
+ga-data-fetching.json
+nodemailer-form.json
