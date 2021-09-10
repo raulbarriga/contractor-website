@@ -18,6 +18,8 @@ export default function (req, res) {
 
   const transporter = nodemailer.createTransport({
     // service: "gmail",
+    name: 'https://tio-jorge-website.vercel.app',
+    // name: 'http://localhost:3000',
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
