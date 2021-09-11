@@ -1,15 +1,14 @@
-const nodemailer = require("nodemailer");
-require("dotenv").config();
-
 // export this from the api route to remove api unnecessary warning
 export const config = {
   api: {
     externalResolver: true,
   },
 };
-
 // didn't work
-export default async (req, res) => {
+export default function (req, res) {
+  const nodemailer = require("nodemailer");
+  require("dotenv").config();
+
   // this will be the contact form details sent from the contact form
   const firstName = req.body["first-name"];
   const lastName = req.body["last-name"];
@@ -28,11 +27,11 @@ export default async (req, res) => {
       clientId: process.env.OAUTH_CLIENTID,
       clientSecret: process.env.OAUTH_CLIENT_SECRET,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
-      accessToken: process.env.OAUTH_ACCESS_TOKEN,
+      accessToken: process.env.OAUTH_ACCESS_TOKEN
     },
   });
 
-  let htmlOutput = `
+let htmlOutput = `
   <p>You have a new estimate request.</p>
   <h3>Contact Details</h3>
   <ul>
@@ -53,45 +52,32 @@ export default async (req, res) => {
   <p>${message}</p>
   `;
 
-  let mailOptions = {
-    from: `"${firstName} ${lastName}" <${email}>`, // the sender's name and email
-    to: process.env.MAIL_USERNAME, // the company's email address
-    subject: "Quote Request",
-    html: htmlOutput,
-  };
-
-  // const sendMail = async () => {
+let mailOptions = {
+  from: `"${firstName} ${lastName}" <${email}>`, // the sender's name and email
+  to: process.env.MAIL_USERNAME, // the company's email address
+  subject: "Quote Request",
+  html: htmlOutput,
+};
 
   // verify connection configuration
-//   transporter.verify(function (error, success) {
-//     if (error) {
-//       console.log("Verify transporter error: ", error);
-//     } else {
-//       console.log("Transporter verification sucessful!");
-//     }
-//   });
-  try {
-    const response = await transporter.sendMail(mailOptions);
-    console.log(response);
-    if (response.status === 200) {
-      console.log(response.messageId);
-      // return response;
+  transporter.verify(function (error, success) {
+    if (error) {
+      console.log("Verify transporter error: ", error);
+    } else {
+      console.log("Transporter verification sucessful!");
     }
-  } catch (error) {
-    console.log(error);
-  }
-  //   function (err, data) {
-  //     if (err) {
-  //       console.log("sendMail Error " + err);
-  //     } else {
-  //       console.log("Email sent successfully from sendMail");
-  //     }
-  //   }
-  // }
+  });
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      console.log("sendMail Error " + err);
+    } else {
+      console.log("Email sent successfully from sendMail");
+    }
+  });
 
   // sendMail(mailOptions);
-  res.status(200).json(req.body);
-};
+  res.status(200).send("Successfull email!");
+}
 
 // export default async function(req, res) {
 //   const { createTransport } = require("nodemailer");
