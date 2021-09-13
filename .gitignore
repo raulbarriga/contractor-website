@@ -32,4 +32,4 @@ yarn-error.log*
 
 # for service account or google analytics
 ga-data-fetching.json
-nodemailer-form.json
+images3api.json
