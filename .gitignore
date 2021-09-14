@@ -30,6 +30,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# for service account or google analytics
-ga-data-fetching.json
+# for google analytics service account
+/lib/ga-auth.json
+# not used (was for aws s3)
 images3api.json
