@@ -49,13 +49,19 @@ const MyApp = ({ Component, pageProps }) => {
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/images/Logos/favicons/favicon-32x32.png"
+          href="/images/Logos/favicons/favicon-1.ico"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/Logos/favicons/favicon-1-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/images/Logos/favicons/favicon-16x16.png"
+          href="/images/Logos/favicons/favicon-1-16x16.png"
         />
         <title>
           JB & B Construction, Inc. | Serving the Greater San Francisco Bay Area

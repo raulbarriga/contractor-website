@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 import BBBLogo from "../public/images/Logos/bbb-logo.png";
-import footerLogo from "../public/images/Logos/footer-logo.jpg";
+// import footerLogo from "./images/Logos/footer-logo.jpg";
 
 const Footer = () => {
   return (
@@ -12,12 +12,12 @@ const Footer = () => {
           <div className="column column1">
             <div className="footer-sidebar">
               <div className="sidebar-theme">
-                <Image
-                  src={footerLogo}
+                <img
+                  src="./images/Logos/footer-logo.jpg"
                   alt="Footer Logo"
                   className="img-responsive footer-logo"
-                  scale="0"
-                  placeholder="blur"
+                  // scale="0"
+                  // placeholder="blur"
                 />
                 <p className="footer-text">
                   For more than 21 years, JB & B Construction, Inc. has been the
