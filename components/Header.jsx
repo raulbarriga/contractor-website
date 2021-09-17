@@ -4,7 +4,7 @@ import { useLockBodyScroll } from "react-use";
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-import logo from "../public/images/Logos/JB-and-B-Construction-logo.jpg";
+import logo from "../public/images/Logos/JB-and-B-Construction-logo_bg-colored.jpg";
 
 const NavMenu = dynamic(() => import('./NavMenu'));
 
