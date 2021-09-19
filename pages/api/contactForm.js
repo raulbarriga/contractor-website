@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
 require("dotenv").config();
 
 // export this from the api route to remove api unnecessary warning
@@ -8,31 +9,38 @@ export const config = {
   },
 };
 
-// didn't work
-export default async (req, res) => {
-  // this will be the contact form details sent from the contact form
-  const firstName = req.body["first-name"];
-  const lastName = req.body["last-name"];
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
+async function sendMail(firstName, lastName, email, message, phone) {
+  const OAuth2Client = new google.auth.OAuth2(
+    process.env.OAUTH_CLIENTID,
+    process.env.OAUTH_CLIENT_SECRET,
+    process.env.OAUTH_REDIRECT_URI
+  );
 
-  const transporter = nodemailer.createTransport({
-    // service: "gmail",
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      type: "OAuth2",
-      user: process.env.MAIL_USERNAME,
-      clientId: process.env.OAUTH_CLIENTID,
-      clientSecret: process.env.OAUTH_CLIENT_SECRET,
-      refreshToken: process.env.OAUTH_REFRESH_TOKEN,
-      accessToken: process.env.OAUTH_ACCESS_TOKEN,
-    },
+  OAuth2Client.setCredentials({
+    refresh_token: process.env.OAUTH_REFRESH_TOKEN,
   });
 
-  let htmlOutput = `
+  try {
+    // Generate the accessToken
+    const accessToken = await OAuth2Client.getAccessToken();
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: process.env.MAIL_USERNAME,
+        clientId: process.env.OAUTH_CLIENTID,
+        clientSecret: process.env.OAUTH_CLIENT_SECRET,
+        refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+        accessToken,
+      },
+      tls: {
+        // thanks to: https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
+        rejectUnauthorized: false, // this made my request token work!
+      },
+    });
+
+    let htmlOutput = `
   <p>You have a new estimate request.</p>
   <h3>Contact Details</h3>
   <ul>
@@ -53,22 +61,42 @@ export default async (req, res) => {
   <p>${message}</p>
   `;
 
-  let mailOptions = {
-    from: `"${firstName} ${lastName}" <${email}>`, // the sender's name and email
-    to: process.env.MAIL_USERNAME, // the company's email address
-    subject: "Quote Request",
-    html: htmlOutput,
-  };
+    let mailOptions = {
+      from: `"${firstName} ${lastName}" <${email}>`, // the sender's name and email
+      to: process.env.MAIL_USERNAME, // the company's email address
+      subject: "Quote Request",
+      html: htmlOutput,
+    };
 
-  try {
     const response = await transporter.sendMail(mailOptions);
-    console.log(response);
-    if (response.status === 200) {
-      console.log(response.messageId);
-      // return response;
-    }
+
+    return response;
   } catch (error) {
-    console.log(error);
+    return error;
   }
-  res.status(200).json(req.body);
-};
+}
+
+// Next.js expect only 1 export default function for req, res.
+export default function handler(req, res) {
+  // this will be the contact form details sent from the contact form
+  const firstName = req.body["first-name"];
+  const lastName = req.body["last-name"];
+  const email = req.body.email;
+  const message = req.body.message;
+  const phone = req.body.phone;
+
+  // next.js' way to handle requests
+  switch (req.method) {
+    // case 'GET':
+    //   //...
+    //   break
+    case "POST":
+      sendMail(firstName, lastName, email, message, phone)
+        .then((result) => res.json(result))
+        .catch((error) => res.json(error.message));
+      break;
+    default:
+      res.status(405).end(); //Method Not Allowed
+      break;
+  }
+}
