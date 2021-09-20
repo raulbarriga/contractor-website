@@ -40,11 +40,10 @@ async function createTransporter() {
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       accessToken,
     },
-    // ,
-    // tls: {
-    //   // thanks to: https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
-    //   rejectUnauthorized: false, // this made my request token work!
-    // },
+    tls: {
+      // thanks to: https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
+      rejectUnauthorized: false, // this made my request token work!
+    },
   });
 
   return transporter;
