@@ -2,8 +2,8 @@ name: 1-minute-cron
 # custom:
   # secrets: ${file(secrets.yml):${self:provider.stage}}
 on:
-  # schedule:
-    # - cron: '* * * * *'
+  schedule:
+    - cron: '* * * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
