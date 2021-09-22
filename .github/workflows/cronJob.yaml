@@ -3,7 +3,7 @@ name: 1-minute-cron
   # secrets: ${file(secrets.yml):${self:provider.stage}}
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
