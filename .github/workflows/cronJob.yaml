@@ -1,4 +1,4 @@
-name: 1-minute-cron
+name: 5-minute-cron
 # custom:
   # secrets: ${file(secrets.yml):${self:provider.stage}}
 on:
@@ -11,5 +11,5 @@ jobs:
       - name: Call our API route
         run: |
           curl --request POST \
-          --url 'http://localhost:3000/api/cronJob' \
+          --url 'https://tio-jorge-website.vercel.app/api/cronJob' \
           --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
