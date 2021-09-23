@@ -108,13 +108,3 @@ export default function handler(req, res) {
       break;
   }
 }
-// function automation () {
-  // Schedule tasks to be run on the server.
-const automate = cron.schedule('* * * * * *', function() {
-  console.log('running a task every 5 seconds');
-}, {
-  scheduled: false
-});
-// }
-
-automate.start();
