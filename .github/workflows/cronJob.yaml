@@ -13,3 +13,4 @@ jobs:
           curl --request POST \
           --url 'https://tio-jorge-website.vercel.app/api/cronJob' \
           --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
+
