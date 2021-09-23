@@ -13,7 +13,7 @@ export default async function handler(req, res) {
           console.log("hello world from the cron job console log!")
         res.status(200).json({ success: true , message: "hello world from the cron job json message!" });
       } else {
-        res.status(401).json({ message: "Token incorrect or missing." });
+        res.status(401).json({ success: false , message: "Token incorrect or missing." });
       }
     } catch (err) {
       res.status(500).json({ statusCode: 500, message: err.message });
