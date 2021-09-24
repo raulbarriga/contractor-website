@@ -36,7 +36,7 @@ async function createTransporter() {
     service: "gmail",
     auth: {
       type: "OAuth2",
-      user: process.env.COMPANY_EMAIL,
+      user: process.env.MAIL_USERNAME,
       clientId: process.env.OAUTH_CLIENTID,
       clientSecret: process.env.OAUTH_CLIENT_SECRET,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
@@ -53,45 +53,26 @@ async function createTransporter() {
 
 // Next.js expects only 1 export default function for req, res.
 export default function handler(req, res) {
-  // this will be the contact form details sent from the contact form
+  /*
+  * Need to add the data to be sent here (but first test to be able to fetch it locally)
   const firstName = req.body["first-name"];
-  const lastName = req.body["last-name"];
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-
+*/
   let htmlOutput = `
-  <p>You have a new estimate request.</p>
-  <h3>Contact Details</h3>
-  <ul>
-  <li>
-  <b>First Name: </b>${firstName}
-  </li>
-  <li>
-  <b>Last Name: </b>${lastName}
-  </li>
-  <li>
-  <b>Email: </b>${email}
-  </li>
-  <li>
-  <b>Phone Number: </b>${phone}
-  </li>
-  </ul>
-  <h3>Message</h3>
-  <p>${message}</p>
+  this'll be the email template to send the data in to be displayed
   `;
 
   let mailOptions = {
-    from: `"${firstName} ${lastName}" <${email}>`, // the sender's name and email
+      // my info in private
+    from: `"${process.env.DEV_FIRST_NAME} ${process.env.DEV_LAST_NAME}" <${process.env.DEV_EMAIL}>`, // the sender's name and email
     to: process.env.COMPANY_EMAIL, // the company's email address
-    subject: "Quote Request",
+    subject: "Monthly Website Statistics",
     html: htmlOutput,
   };
 
   const sendEmail = async (mailOptions) => {
     let emailTransporter = await createTransporter();
     await emailTransporter.sendMail(mailOptions);
-  };
+createTransporter  };
 
   // next.js' way to handle requests
   switch (req.method) {
