@@ -32,8 +32,3 @@ yarn-error.log*
 
 # for google analytics service account
 /lib/ga-auth.json
-# not used (was for aws s3)
-images3api.json
-
-# for cron job
-/.github/workflows/secrets.yml

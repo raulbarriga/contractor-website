@@ -31,7 +31,7 @@ async function createTransporter() {
       resolve(token);
     });
   });
-
+  console.log("accessToken: ", accessToken);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -50,6 +50,7 @@ async function createTransporter() {
 
   return transporter;
 }
+// console.log(createTransporter.A)
 
 // Next.js expects only 1 export default function for req, res.
 export default function handler(req, res) {
