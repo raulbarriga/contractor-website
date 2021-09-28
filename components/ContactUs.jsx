@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { isMobile } from "react-device-detect";
 import Image from "next/image";
+import{ init, send } from 'emailjs-com';
 
-import { sendForm } from "../axios/index";
+// import { sendForm } from "../axios/index";
 import ContactUsImage from "../public/images/formImage.jpg";
 import * as gtag from "../lib/gtag";
 
@@ -16,6 +17,9 @@ const ContactUs = () => {
 
   useEffect(() => {
     setMobile(isMobile);
+    // (function(){
+      init("user_ZNljYlzkMvUQiI926og3B"); //use your USER ID
+  //  })();
   }, [setMobile]);
 
   const {
@@ -25,18 +29,32 @@ const ContactUs = () => {
     reset,
   } = useForm();
 
-  const onSubmitForm = async (formValues, event) => {
-    event.preventDefault();
+  const onSubmitForm = async (formValues, e) => {
+    e.preventDefault();
+
+    // from axios (sends the data to axios which'll then send it to the backend api route)
+    // sendForm(formValues);
     
-    sendForm(formValues);
+    
+  //   const templateParams = {
+  //     name: 'James',
+  //     notes: 'Check this out!'
+  // };
+  console.log(formValues)
+  send('tio_jorge_form', 'template_ea49wri', formValues) //use your Service ID and Template ID
+      .then(function(response) {
+         console.log('SUCCESS!', response.status, response.text);
+      }, function(error) {
+         console.log('FAILED...', error);
+      });
     gtag.event({
       action: "submit_form", 
       category: "contact_form", 
       label: "Form Submitted", 
       value: true
     })
-    setSubmit(true);
-    reset();
+    setSubmit(true); 
+    reset(); // from react-hook-form
     setFadeOut(true);
     // reload browser 6 seconds after it's submitted
     // setTimeout(() => window.location.reload(), 6000);
@@ -88,31 +106,31 @@ const ContactUs = () => {
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              // name="firstName"
+              name="first_name"
               type="text"
-              {...register("first-name", {
+              {...register("first_name", {
                 required: "You must enter your name"
               })}
               maxLength="100"
               placeholder="First Name"
             />
-            {errors["first-name"] && (
+            {errors["first_name"] && (
               <span
                 className="error-span"
                 style={{
                   padding: "10px 5px 10px 5px",
                 }}
               >
-                {errors["first-name"].message}
+                {errors["first_name"].message}
               </span>
             )}
           </div>
           <div>
             <input
               className="inputs"
-              // name="last-name"
+              name="last_name"
               type="text"
-              {...register("last-name")}
+              {...register("last_name")}
               maxLength="100"
               placeholder="Last Name"
             />
@@ -120,7 +138,7 @@ const ContactUs = () => {
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              // name="email"
+              name="email"
               type="email"
               {...register("email", {
                 required: "You must enter a valid email",
@@ -137,7 +155,7 @@ const ContactUs = () => {
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              // name="phone"
+              name="phone"
               type="tel"
               {...register("phone", {
                 required: "You must enter your phone number"
@@ -175,7 +193,7 @@ const ContactUs = () => {
           <div className="textArea" onBlur={onBlurHandler}>
             <textarea
               className="inputs"
-              // name="message"
+              name="message"
               {...register("message", {
                 required: "You must enter your message"
               })}
