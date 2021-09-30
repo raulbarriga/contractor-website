@@ -17,9 +17,7 @@ const ContactUs = () => {
 
   useEffect(() => {
     setMobile(isMobile);
-    // (function(){
       init("user_ZNljYlzkMvUQiI926og3B"); //use your USER ID
-  //  })();
   }, [setMobile]);
 
   const {
@@ -34,12 +32,7 @@ const ContactUs = () => {
 
     // from axios (sends the data to axios which'll then send it to the backend api route)
     // sendForm(formValues);
-    
-    
-  //   const templateParams = {
-  //     name: 'James',
-  //     notes: 'Check this out!'
-  // };
+  
   console.log(formValues)
   send('tio_jorge_form', 'template_ea49wri', formValues) //use your Service ID and Template ID
       .then(function(response) {
@@ -57,7 +50,7 @@ const ContactUs = () => {
     reset(); // from react-hook-form
     setFadeOut(true);
     // reload browser 6 seconds after it's submitted
-    // setTimeout(() => window.location.reload(), 6000);
+    setTimeout(() => window.location.reload(), 6000);
   };
 
   const onBlurHandler = (e) => {
