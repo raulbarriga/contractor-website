@@ -33,7 +33,7 @@ const ContactUs = () => {
     // from axios (sends the data to axios which'll then send it to the backend api route)
     // sendForm(formValues);
   
-  console.log(formValues)
+  // console.log(formValues)
   send('tio_jorge_form', 'template_ea49wri', formValues) //use your Service ID and Template ID
       .then(function(response) {
          console.log('SUCCESS!', response.status, response.text);
@@ -92,8 +92,8 @@ const ContactUs = () => {
       <div className="form-container">
         <form
           id="contact-form"
-          method="POST"
-          action="contactForm"
+          // method="POST"
+          // action="contactForm"
           onSubmit={handleSubmit(onSubmitForm)}
         >
           <div onBlur={onBlurHandler}>
