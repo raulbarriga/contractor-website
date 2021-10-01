@@ -1,5 +1,4 @@
 require("dotenv").config();
-import { SMTPClient } from "emailjs";
 
 // const automate = require("../cronJobs/cronJob.js");
 
