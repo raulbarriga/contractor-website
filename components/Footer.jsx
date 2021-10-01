@@ -1,5 +1,5 @@
 import React from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
 import BBBLogo from "../public/images/Logos/bbb-logo.png";
 // import footerLogo from "./images/Logos/footer-logo.jpg";
@@ -60,6 +60,16 @@ const Footer = () => {
                 </li>
                 <li className="menu-item">
                   <a href="#services">...and more</a>
+                </li>
+                <br />
+                <br />
+                {/* Might need the email contact info 2 */}
+                <h2 className="widget-title">Phone</h2>
+                <li className="menu-item">
+                  <a href="tel:408-595-5471">(408) 595-5471</a>
+                </li>
+                <li className="menu-item">
+                  <a href="tel:408-748-3307">(408) 748-3307</a>
                 </li>
               </ul>
             </div>
