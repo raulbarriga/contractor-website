@@ -31,8 +31,11 @@
   .services .card-container .card .face.face1 {
     position: relative;
     background: #333;
+    display: -moz-box;
     display: flex;
+    -moz-box-pack: center;
     justify-content: center;
+    -moz-box-align: center;
     align-items: center;
     z-index: 1;
     /* for the next/image bottom padding bug */
@@ -69,26 +72,33 @@
     }
   
     .services .card-container .card .face.face1 .content .text-box {
-      position: relative;
-      height: 100%;
-      text-align: center;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-size: cover;
-      background-position: center;
+      position: absolute;
+    bottom: 0px;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: 50%;
     }
     
     .services .card-container .card .face.face1 .content h3 {
       position: absolute;
-      bottom: 0%;
-      transform: translate(0%, 16%);
-      margin: 0 0 2rem 0;
-      padding: 0;
-      color: white;
-      text-align: center;
-      font-size: 1.5em;
+    bottom: 0;
+    -webkit-transform: translateY(16%);
+    transform: translateY(16%);
+    margin: 0 0 2rem;
+    padding: 0;
+    color: #fff;
+    /* color: black; */
+    text-align: center;
+    font-size: 1.5em;
     }
     
     .services .card-container .card .face.face2 {
