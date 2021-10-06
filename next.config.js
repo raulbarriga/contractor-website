@@ -7,5 +7,10 @@ module.exports = {
           loader: require.resolve('@svgr/webpack')
         })
         return config
-      }
+      },
+      images: {
+        domains: [
+          'res.cloudinary.com'
+        ],
+    }
 };
