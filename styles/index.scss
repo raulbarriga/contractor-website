@@ -200,7 +200,8 @@
       position: relative;
       width: 100%;
       // color: #e5e5e4;
-      color: #1b1b19;
+      // color: #1b1b19;
+      color: white;
       overflow: hidden;
       z-index: 1;
 
@@ -239,7 +240,8 @@
         width: 100%;
         // background-color: rgba(0, 0, 0, 0.4);
         // background-color: rgba(229, 229, 228, 0.4);
-        background-color: rgb(255, 255, 255, 0.3);
+        // background-color: rgb(255, 255, 255, 0.3);
+        background-color: rgba(1,40,48,0.3);
       }
 
       .video-layer {
