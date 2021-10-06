@@ -34,5 +34,5 @@ yarn-error.log*
 /lib/ga-auth.json
 
 # Files/folders not used but not yet deleted
-./axios/index.js
-./pages/api/contactForm.js
+axios/
+pages/api/
