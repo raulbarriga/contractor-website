@@ -14,7 +14,7 @@ const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
   const length = images.length;
   // for React's createPortal Modal
   const [isBrowser, setIsBrowser] = useState(false);
-  // for whatever uses isMobile 
+  // for whatever uses isMobile
   const [mobile, setMobile] = useState();
 
   // for the server side rendering
@@ -97,12 +97,12 @@ const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
         </button>
         <div className="image-wrapper">
           <div className="my-component">
-          <div className="my-component">
+            <div className="my-component">
               <motion.img
                 id="ModalImage"
                 ref={ref}
                 key={images[currentImg].key}
-                src={images[currentImg].mediaUrl.src}
+                src={images[currentImg].mediaUrl.src ? images[currentImg].mediaUrl.src : images[currentImg].mediaUrl}
                 alt={images[currentImg].mediaUrl.src}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -132,7 +132,7 @@ const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
               color="black"
               onClick={() => {
                 toggle();
-                console.log("Fullscreen button pressed")
+                console.log("Fullscreen button pressed");
               }}
             />
             {/* )} */}

@@ -124,6 +124,11 @@
   .modal-container .slider .image-wrapper {
     width: auto;
     height: auto;
+  } 
+
+  #ModalImage {
+    width: 706px;
+    height: 704px;
   }
 
   /* Styling for the fullscreen api */

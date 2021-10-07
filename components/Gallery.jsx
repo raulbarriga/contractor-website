@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useLockBodyScroll } from "react-use";
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
+import Image from "next/image";
+import dynamic from "next/dynamic";
 
 import { galleryData } from "./data/galleryData";
 
-const ModalCarousel = dynamic(() => import('./ModalCarousel/ModalCarousel'));
+const ModalCarousel = dynamic(() => import("./ModalCarousel/ModalCarousel"));
 
 const Gallery = ({
   visibleImages,
@@ -13,7 +13,7 @@ const Gallery = ({
   viewportWidth,
   setCount3TotalImgsPerRow,
   setCount4TotalImgsPerRow,
-  setIsToTopVisible
+  setIsToTopVisible,
 }) => {
   // image data
   const [items, setItems] = useState(galleryData);
@@ -29,7 +29,7 @@ const Gallery = ({
     // methods to compare to visibleImages and set the correct # of images per row when resizing the browser
     setCount3TotalImgsPerRow((prevValue) => (prevValue += 3));
     setCount4TotalImgsPerRow((prevValue) => (prevValue += 4));
-    
+
     if (`${viewportWidth}` <= 1200 && `${viewportWidth}` >= 840) {
       setVisibleImages((prevValue) => prevValue + 3);
     } else {
@@ -45,19 +45,23 @@ const Gallery = ({
     <section id="gallery" className="gallery-component">
       <div className="gallery-container">
         {items.slice(0, visibleImages).map((item, index) => (
-          <Image
-            src={item.mediaUrl}
-            key={item.key}
-            alt={item.mediaUrl}
-            placeholder="blur"
-            onClick={() => {
-              //save the scroll position to restore it once modal is closed (fixing fullscreen api issue)
-              setScrollPosition(window.pageYOffset);
-              setIsModalOpen(true);
-              setIsToTopVisible(false); // don't show the scroll-to-top btn
-              setSelectedImg(item.key);
-            }}
-          />
+          <div className="img">
+            <Image
+              src={item.mediaUrl}
+              key={item.key}
+              alt={item.mediaUrl}
+              layout="fill"
+              unoptimized={true}
+              // placeholder="blur"
+              onClick={() => {
+                //save the scroll position to restore it once modal is closed (fixing fullscreen api issue)
+                setScrollPosition(window.pageYOffset);
+                setIsModalOpen(true);
+                setIsToTopVisible(false); // don't show the scroll-to-top btn
+                setSelectedImg(item.key);
+              }}
+            />
+          </div>
         ))}
       </div>
 

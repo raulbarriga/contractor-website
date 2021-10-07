@@ -317,34 +317,34 @@ export const galleryData = [
   },
   { // begin adding cloudinary urls
     key: 64,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image1.jpg',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633634068/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image1.jpg',
   },
   {
     key: 65,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/v1633552312/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image2.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image2.jpg',
   },
   {
     key: 66,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image3.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image3.jpg',
   },
   {
     key: 66,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image4.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633803/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image4.jpg',
   },
   {
     key: 66,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image5.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633804/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image5.jpg',
   },
   {
     key: 67,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image6.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633806/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image6.jpg',
   },
   {
     key: 68,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image7.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image7.jpg',
   },
   {
     key: 69,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/q_auto:good/v1633552429/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.heic',
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg',
   },
 ];
