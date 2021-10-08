@@ -63,288 +63,288 @@ import image62 from "../../public/images/Gallery Images/image62.jpg";
 import image63 from "../../public/images/Gallery Images/image63.jpg";
 
 export const galleryData = [
+  {
+    key: 1,
+    mediaUrl: image1,
+  },
+  {
+    key: 2,
+    mediaUrl: image2,
+  },
+  {
+    key: 3,
+    mediaUrl: image3,
+  },
+  {
+    key: 4,
+    mediaUrl: image4,
+  },
+  {
+    key: 5,
+    mediaUrl: image5,
+  },
+  {
+    key: 6,
+    mediaUrl: image6,
+  },
+  {
+    key: 7,
+    mediaUrl: image7,
+  },
+  {
+    key: 8,
+    mediaUrl: image8,
+  },
+  {
+    key: 9,
+    mediaUrl: image9,
+  },
+  {
+    key: 10,
+    mediaUrl: image10,
+  },
+  {
+    key: 11,
+    mediaUrl: image11,
+  },
+  {
+    key: 12,
+    mediaUrl: image12,
+  },
+  {
+    key: 13,
+    mediaUrl: image13,
+  },
+  {
+    key: 14,
+    mediaUrl: image14,
+  },
+  {
+    key: 15,
+    mediaUrl: image15,
+  },
+  {
+    key: 16,
+    mediaUrl: image16,
+  },
+  {
+    key: 17,
+    mediaUrl: image17,
+  },
+  {
+    key: 18,
+    mediaUrl: image18,
+  },
+  {
+    key: 19,
+    mediaUrl: image19,
+  },
+  {
+    key: 20,
+    mediaUrl: image20,
+  },
+  {
+    key: 21,
+    mediaUrl: image21,
+  },
+  {
+    key: 22,
+    mediaUrl: image22,
+  },
+  {
+    key: 23,
+    mediaUrl: image23,
+  },
+  {
+    key: 24,
+    mediaUrl: image24,
+  },
+  {
+    key: 25,
+    mediaUrl: image25,
+  },
+  {
+    key: 26,
+    mediaUrl: image26,
+  },
+  {
+    key: 27,
+    mediaUrl: image27,
+  },
+  {
+    key: 28,
+    mediaUrl: image28,
+  },
+  {
+    key: 29,
+    mediaUrl: image29,
+  },
+  {
+    key: 30,
+    mediaUrl: image30,
+  },
+  {
+    key: 31,
+    mediaUrl: image31,
+  },
+  {
+    key: 32,
+    mediaUrl: image32,
+  },
+  {
+    key: 33,
+    mediaUrl: image33,
+  },
+  {
+    key: 34,
+    mediaUrl: image34,
+  },
+  {
+    key: 35,
+    mediaUrl: image35,
+  },
+  {
+    key: 36,
+    mediaUrl: image36,
+  },
+  {
+    key: 37,
+    mediaUrl: image37,
+  },
+  {
+    key: 38,
+    mediaUrl: image38,
+  },
+  {
+    key: 39,
+    mediaUrl: image39,
+  },
+  {
+    key: 40,
+    mediaUrl: image40,
+  },
+  {
+    key: 41,
+    mediaUrl: image41,
+  },
+  {
+    key: 42,
+    mediaUrl: image42,
+  },
+  {
+    key: 43,
+    mediaUrl: image43,
+  },
+  {
+    key: 44,
+    mediaUrl: image44,
+  },
+  {
+    key: 45,
+    mediaUrl: image45,
+  },
+  {
+    key: 46,
+    mediaUrl: image46,
+  },
+  {
+    key: 47,
+    mediaUrl: image47,
+  },
+  {
+    key: 48,
+    mediaUrl: image48,
+  },
+  {
+    key: 49,
+    mediaUrl: image49,
+  },
+  {
+    key: 50,
+    mediaUrl: image50,
+  },
+  {
+    key: 51,
+    mediaUrl: image51,
+  },
+  {
+    key: 52,
+    mediaUrl: image52,
+  },
+  {
+    key: 53,
+    mediaUrl: image53,
+  },
+  {
+    key: 54,
+    mediaUrl: image54,
+  },
+  {
+    key: 55,
+    mediaUrl: image55,
+  },
+  {
+    key: 56,
+    mediaUrl: image56,
+  },
+  {
+    key: 57,
+    mediaUrl: image57,
+  },
+  {
+    key: 58,
+    mediaUrl: image58,
+  },
+  {
+    key: 59,
+    mediaUrl: image59,
+  },
+  {
+    key: 60,
+    mediaUrl: image60,
+  },
+  {
+    key: 61,
+    mediaUrl: image61,
+  },
+  {
+    key: 62,
+    mediaUrl: image62,
+  },
+  {
+    key: 63,
+    mediaUrl: image63,
+  },
   { // begin adding cloudinary urls
     key: 64,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633634068/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image1.jpg',
   },
   {
-    key: 1,
+    key: 65,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image2.jpg',
   },
   {
-    key: 2,
+    key: 66,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image3.jpg',
   },
   {
-    key: 3,
+    key: 66,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633803/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image4.jpg',
   },
   {
-    key: 4,
+    key: 66,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633804/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image5.jpg',
   },
   {
-    key: 5,
+    key: 67,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633806/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image6.jpg',
   },
   {
-    key: 6,
+    key: 68,
     mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image7.jpg',
   },
   {
-    key: 7,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg',
-  },
-  {
-    key: 8,
-    mediaUrl: image1,
-  },
-  {
-    key: 9,
-    mediaUrl: image2,
-  },
-  {
-    key: 10,
-    mediaUrl: image3,
-  },
-  {
-    key: 11,
-    mediaUrl: image4,
-  },
-  {
-    key: 12,
-    mediaUrl: image5,
-  },
-  {
-    key: 13,
-    mediaUrl: image6,
-  },
-  {
-    key: 14,
-    mediaUrl: image7,
-  },
-  {
-    key: 15,
-    mediaUrl: image8,
-  },
-  {
-    key: 16,
-    mediaUrl: image9,
-  },
-  {
-    key: 17,
-    mediaUrl: image10,
-  },
-  {
-    key: 18,
-    mediaUrl: image11,
-  },
-  {
-    key: 19,
-    mediaUrl: image12,
-  },
-  {
-    key: 20,
-    mediaUrl: image13,
-  },
-  {
-    key: 21,
-    mediaUrl: image14,
-  },
-  {
-    key: 22,
-    mediaUrl: image15,
-  },
-  {
-    key: 23,
-    mediaUrl: image16,
-  },
-  {
-    key: 24,
-    mediaUrl: image17,
-  },
-  {
-    key: 25,
-    mediaUrl: image18,
-  },
-  {
-    key: 26,
-    mediaUrl: image19,
-  },
-  {
-    key: 27,
-    mediaUrl: image20,
-  },
-  {
-    key: 28,
-    mediaUrl: image21,
-  },
-  {
-    key: 29,
-    mediaUrl: image22,
-  },
-  {
-    key: 30,
-    mediaUrl: image23,
-  },
-  {
-    key: 31,
-    mediaUrl: image24,
-  },
-  {
-    key: 32,
-    mediaUrl: image25,
-  },
-  {
-    key: 33,
-    mediaUrl: image26,
-  },
-  {
-    key: 34,
-    mediaUrl: image27,
-  },
-  {
-    key: 35,
-    mediaUrl: image28,
-  },
-  {
-    key: 36,
-    mediaUrl: image29,
-  },
-  {
-    key: 37,
-    mediaUrl: image30,
-  },
-  {
-    key: 38,
-    mediaUrl: image31,
-  },
-  {
-    key: 39,
-    mediaUrl: image32,
-  },
-  {
-    key: 40,
-    mediaUrl: image33,
-  },
-  {
-    key: 41,
-    mediaUrl: image34,
-  },
-  {
-    key: 42,
-    mediaUrl: image35,
-  },
-  {
-    key: 43,
-    mediaUrl: image36,
-  },
-  {
-    key: 44,
-    mediaUrl: image37,
-  },
-  {
-    key: 45,
-    mediaUrl: image38,
-  },
-  {
-    key: 46,
-    mediaUrl: image39,
-  },
-  {
-    key: 47,
-    mediaUrl: image40,
-  },
-  {
-    key: 48,
-    mediaUrl: image41,
-  },
-  {
-    key: 49,
-    mediaUrl: image42,
-  },
-  {
-    key: 50,
-    mediaUrl: image43,
-  },
-  {
-    key: 51,
-    mediaUrl: image44,
-  },
-  {
-    key: 52,
-    mediaUrl: image45,
-  },
-  {
-    key: 53,
-    mediaUrl: image46,
-  },
-  {
-    key: 54,
-    mediaUrl: image47,
-  },
-  {
-    key: 55,
-    mediaUrl: image48,
-  },
-  {
-    key: 56,
-    mediaUrl: image49,
-  },
-  {
-    key: 57,
-    mediaUrl: image50,
-  },
-  {
-    key: 58,
-    mediaUrl: image51,
-  },
-  {
-    key: 59,
-    mediaUrl: image52,
-  },
-  {
-    key: 60,
-    mediaUrl: image53,
-  },
-  {
-    key: 61,
-    mediaUrl: image54,
-  },
-  {
-    key: 62,
-    mediaUrl: image55,
-  },
-  {
-    key: 63,
-    mediaUrl: image56,
-  },
-  {
-    key: 64,
-    mediaUrl: image57,
-  },
-  {
-    key: 65,
-    mediaUrl: image58,
-  },
-  {
-    key: 66,
-    mediaUrl: image59,
-  },
-  {
-    key: 67,
-    mediaUrl: image60,
-  },
-  {
-    key: 68,
-    mediaUrl: image61,
-  },
-  {
     key: 69,
-    mediaUrl: image62,
-  },
-  {
-    key: 70,
-    mediaUrl: image63,
+    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg',
   },
 ];
