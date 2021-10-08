@@ -74,7 +74,7 @@ const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
     }
   };
   useEvent("keydown", keypressHandler);
-
+console.log("modal images: ", images);
   const modalContent = isModalOpen ? (
     <div
       id="modal"
