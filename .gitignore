@@ -36,3 +36,4 @@ yarn-error.log*
 # Files/folders not used but not yet deleted
 axios/
 pages/api/
+/lib/gaReportAPI.js
