@@ -45,7 +45,7 @@ const Gallery = ({
     <section id="gallery" className="gallery-component">
       <div className="gallery-container">
         {items.slice(0, visibleImages).map((item, index) => (
-          <div className="img">
+          <div key={index} className="img">
             <Image
               src={item.mediaUrl}
               key={item.key}

@@ -5,7 +5,7 @@ import Image from "next/image";
 import{ init, send } from 'emailjs-com';
 
 // import { sendForm } from "../axios/index";
-import ContactUsImage from "../public/images/formImage.jpg";
+import ContactUsImage from "../public/images/Gallery Images/image45.jpg";
 import * as gtag from "../lib/gtag";
 
 

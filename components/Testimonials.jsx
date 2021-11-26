@@ -7,14 +7,14 @@ import { isMobile } from "react-device-detect";
 import LeftBtn from "../public/svgs/chevron-left.svg";
 import RightBtn from "../public/svgs/chevron-right.svg";
 import DoubleQuotes from "../public/svgs/ri-double-quotes.svg";
-  // const wrap = dynamic(
-  //    () => {
-  //     const { wrap } = import("popmotion");
-  //     return wrap;
-  //   },
-  //   { ssr: false }
-  //   );
-  //   console.log("wrap: ", wrap);
+// const wrap = dynamic(
+//    () => {
+//     const { wrap } = import("popmotion");
+//     return wrap;
+//   },
+//   { ssr: false }
+//   );
+//   console.log("wrap: ", wrap);
 const Testimonials = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   // for server side rendering
@@ -27,33 +27,33 @@ const Testimonials = () => {
   const quotesArr = [
     {
       key: 1,
-      client: "Fred Astaire",
+      client: "Kowdle Prasad",
       quote:
-        "This search for what you want is like tracking something that doesn't want to be tracked.",
+        "In regard to the work JB & B Construction completed, I can definitely say it was very professionally done. My property manager also said he thought the work was very well executed. I thank you very much for doing such professional work. It gives me great pleasure to use your company for my future re-modeling/construction needs. I look forward to working with you in the future. You guys are GREAT!",
     },
     {
       key: 2,
-      client: "Ralph Waldo Emerson",
+      client: "Erika Revels",
       quote:
-        "Nature is an endless combination and repetition of a very few laws. She hums the old well-known air through innumerable variations.",
+        "I am a property manager for 12 apartment complexes. JB & B Construction did all the interior renovation and exterior painting. They were very professional and did an amazing job! We are ready to hire them for another property. Highly recommend!",
     },
     {
       key: 3,
-      client: "Jack Johnson",
+      client: "Nick Romero",
       quote:
-        "I never doubted the issue from the beginning. I knew I was too good for Burns. I have forgotten more about fighting than Burns ever knew.",
+        "JB & B Construction remodeled my home's interior completely. New kitchen, new bathrooms, new flooring and baseboards, new doors, light fixtures, and drywall, they even custom-made new window sills for all my windows! Service was done at a reasonable price, and with the utmost professionalism. Their team made every effort to accommodate requests and to go above and beyond! Thank you!",
     },
     {
       key: 4,
-      client: "Dianne de Poitiers",
+      client: "Johnathan Rivera",
       quote:
-        "Courage is as often the outcome of despair as of hope; in the one case we have nothing to lose, in the other everything to gain.",
+        "Very reliable and dependable. But most importantly great quality work and very productive. I am a construction superintendent and we are definitely using this company on many more projects.",
     },
     {
       key: 5,
-      client: "Samuel Johnson",
+      client: "Alberto Cruz",
       quote:
-        "Whoever wishes to attain an English style, familiar but not coarse, and elegant but not ostentatious, must give his days and nights...",
+        "Had Front Door Installed and Laundry Room Remodel. Great Service at a Great Price 💯👌",
     },
   ];
 
@@ -135,7 +135,7 @@ const Testimonials = () => {
           }}
         >
           <div className="remix-icon-double-quotes">
-          <DoubleQuotes aria-label="Next testimonial" />
+            <DoubleQuotes aria-label="Next testimonial" />
           </div>
           <p>{quotesArr[objIndex].quote}</p>
           <h2>{quotesArr[objIndex].client}</h2>
