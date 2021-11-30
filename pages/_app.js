@@ -44,6 +44,19 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+        {/* Linkedin thumbnail */}
+        <meta property="og:title" content="JB & B Construction, Inc." />
+        <meta property="og:image" content="/images/tio-jorge-screenshot.png" />
+        <meta
+          property="og:description"
+          content="Get a free estimate for kitchen and bathroom remodeling, electrical, interior and exterior painting, plumbing, decks, driveway, roofing, apartment or house renovations, drywall or new construction."
+        />
+        <meta property="og:url" content="https://www.jbandbconstruction.com" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+
+        <meta property="og:type" content='website'/>
+
         {/* browser favicon */}
         <link
           rel="icon"
