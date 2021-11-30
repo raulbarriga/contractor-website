@@ -45,7 +45,11 @@ const MyApp = ({ Component, pageProps }) => {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
 
         {/* Linkedin thumbnail */}
-        <meta property="og:title" content="JB & B Construction, Inc." />
+        <meta
+          property="og:title"
+          content="JB & B Construction, Inc. | Serving the Greater San Francisco Bay Area
+          and Its Surroundings."
+        />
         <meta property="og:image" content="/images/tio-jorge-screenshot.png" />
         <meta
           property="og:description"
@@ -55,7 +59,7 @@ const MyApp = ({ Component, pageProps }) => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
 
-        <meta property="og:type" content='website'/>
+        <meta property="og:type" content="website" />
 
         {/* browser favicon */}
         <link
