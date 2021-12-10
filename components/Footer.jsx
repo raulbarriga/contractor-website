@@ -64,12 +64,15 @@ const Footer = () => {
                 <br />
                 <br />
                 {/* Might need the email contact info 2 */}
-                <h2 className="widget-title">Phone</h2>
+                <h2 className="widget-title">Phone and Email</h2>
                 <li className="menu-item">
                   <a href="tel:408-595-5471">(408) 595-5471</a>
                 </li>
                 <li className="menu-item">
-                  <a href="tel:408-748-3307">(408) 748-3307</a>
+                  <a 
+                  href="mailto:jbandbconstinc@comcast.net?subject=Sent%20from%20the%20JB%20and%20B%20company%20website">
+                    jbandbconstinc@comcast.net
+                  </a>
                 </li>
               </ul>
             </div>

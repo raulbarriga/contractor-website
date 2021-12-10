@@ -48,7 +48,7 @@ const Gallery = ({
           <div key={index} className="img">
             <Image
               src={item.mediaUrl}
-              key={item.key}
+              key={index}
               alt={item.mediaUrl}
               layout="fill"
               unoptimized={true}
@@ -58,7 +58,7 @@ const Gallery = ({
                 setScrollPosition(window.pageYOffset);
                 setIsModalOpen(true);
                 setIsToTopVisible(false); // don't show the scroll-to-top btn
-                setSelectedImg(item.key);
+                setSelectedImg(index);
               }}
             />
           </div>

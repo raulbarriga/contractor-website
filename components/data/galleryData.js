@@ -62,289 +62,286 @@ import image61 from "../../public/images/Gallery Images/image61.jpg";
 import image62 from "../../public/images/Gallery Images/image62.jpg";
 import image63 from "../../public/images/Gallery Images/image63.jpg";
 
-export const galleryData = [
-  { // begin adding cloudinary urls
-    key: 1,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633634068/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image1.jpg',
+let project1 = [
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633634068/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image1.jpg",
   },
   {
-    key: 2,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image2.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image2.jpg",
   },
   {
-    key: 3,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image3.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image3.jpg",
   },
   {
-    key: 4,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633803/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image4.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633803/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image4.jpg",
   },
   {
-    key: 5,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633804/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image5.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633804/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image5.jpg",
   },
   {
-    key: 6,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633806/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image6.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633806/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image6.jpg",
   },
   {
-    key: 7,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image7.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image7.jpg",
   },
   {
-    key: 8,
-    mediaUrl: 'https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg',
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image8.jpg",
+  },
+];
+
+let project2 = [
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image1.jpg",
   },
   {
-    key: 9,
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image2.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image3.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image4.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image5.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image6.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image7.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image8.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image9.jpg",
+  },
+  {
+    mediaUrl:
+      "https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_50/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image10.jpg",
+  },
+];
+
+// this 1's from my dad's work photos
+let project3 = [
+  {
     mediaUrl: image1,
   },
   {
-    key: 10,
     mediaUrl: image2,
   },
   {
-    key: 11,
     mediaUrl: image3,
   },
   {
-    key: 12,
     mediaUrl: image4,
   },
   {
-    key: 13,
     mediaUrl: image5,
   },
   {
-    key: 14,
     mediaUrl: image6,
   },
   {
-    key: 15,
     mediaUrl: image7,
   },
   {
-    key: 16,
     mediaUrl: image8,
   },
   {
-    key: 17,
     mediaUrl: image9,
   },
   {
-    key: 18,
     mediaUrl: image10,
   },
   {
-    key: 19,
     mediaUrl: image11,
   },
   {
-    key: 20,
     mediaUrl: image12,
   },
   {
-    key: 21,
     mediaUrl: image13,
   },
   {
-    key: 22,
     mediaUrl: image14,
   },
   {
-    key: 23,
     mediaUrl: image15,
   },
   {
-    key: 24,
     mediaUrl: image16,
   },
   {
-    key: 25,
     mediaUrl: image17,
   },
   {
-    key: 26,
     mediaUrl: image18,
   },
   {
-    key: 27,
     mediaUrl: image19,
   },
   {
-    key: 28,
     mediaUrl: image20,
   },
   {
-    key: 29,
     mediaUrl: image21,
   },
   {
-    key: 30,
     mediaUrl: image22,
   },
   {
-    key: 31,
     mediaUrl: image23,
   },
   {
-    key: 32,
     mediaUrl: image24,
   },
   {
-    key: 33,
     mediaUrl: image25,
   },
   {
-    key: 34,
     mediaUrl: image26,
   },
   {
-    key: 35,
     mediaUrl: image27,
   },
   {
-    key: 36,
     mediaUrl: image28,
   },
   {
-    key: 37,
     mediaUrl: image29,
   },
   {
-    key: 38,
     mediaUrl: image30,
   },
   {
-    key: 39,
     mediaUrl: image31,
   },
   {
-    key: 40,
     mediaUrl: image32,
   },
   {
-    key: 41,
     mediaUrl: image33,
   },
   {
-    key: 42,
     mediaUrl: image34,
   },
   {
-    key: 43,
     mediaUrl: image35,
   },
   {
-    key: 44,
     mediaUrl: image36,
   },
   {
-    key: 45,
     mediaUrl: image37,
   },
   {
-    key: 46,
     mediaUrl: image38,
   },
   {
-    key: 47,
     mediaUrl: image39,
   },
   {
-    key: 48,
     mediaUrl: image40,
   },
   {
-    key: 49,
     mediaUrl: image41,
   },
   {
-    key: 50,
     mediaUrl: image42,
   },
   {
-    key: 51,
     mediaUrl: image43,
   },
   {
-    key: 52,
     mediaUrl: image44,
   },
   {
-    key: 53,
     mediaUrl: image45,
   },
   {
-    key: 54,
     mediaUrl: image46,
   },
   {
-    key: 55,
     mediaUrl: image47,
   },
   {
-    key: 56,
     mediaUrl: image48,
   },
   {
-    key: 57,
     mediaUrl: image49,
   },
   {
-    key: 58,
     mediaUrl: image50,
   },
   {
-    key: 59,
     mediaUrl: image51,
   },
   {
-    key: 60,
     mediaUrl: image52,
   },
   {
-    key: 61,
     mediaUrl: image53,
   },
   {
-    key: 62,
     mediaUrl: image54,
   },
   {
-    key: 63,
     mediaUrl: image55,
   },
   {
-    key: 64,
     mediaUrl: image56,
   },
   {
-    key: 65,
     mediaUrl: image57,
   },
   {
-    key: 66,
     mediaUrl: image58,
   },
   {
-    key: 67,
     mediaUrl: image59,
   },
   {
-    key: 68,
     mediaUrl: image60,
   },
   {
-    key: 69,
     mediaUrl: image61,
   },
   {
-    key: 70,
     mediaUrl: image62,
   },
   {
-    key: 71,
     mediaUrl: image63,
   },
 ];
+
+export const galleryData = [...project1, ...project2, ...project3];
+
+/* 
+how to add more images inside the array?
+Maybe have objects per project & then join/add them together and place the final 1 
+inside the array.
+But for that I think I'd have to delete the key object property & make the gallery component
+map through using their built-in indexes
+
+I'd still have to manually create the object per photo url from cloudinary
+
+*/

@@ -55,6 +55,12 @@ const Testimonials = () => {
       quote:
         "Had Front Door Installed and Laundry Room Remodel. Great Service at a Great Price 💯👌",
     },
+    { // A REAL CLIENT of JB & B
+      key: 5,
+      client: "Esperanza",
+      quote:
+        "JB&B has amazing service and quality work. My go to Company for all projects!",
+    },
   ];
 
   const variants = {

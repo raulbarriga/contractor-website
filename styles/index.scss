@@ -241,7 +241,7 @@
         // background-color: rgba(0, 0, 0, 0.4);
         // background-color: rgba(229, 229, 228, 0.4);
         // background-color: rgb(255, 255, 255, 0.3);
-        background-color: rgba(1,40,48,0.3);
+        background-color: rgba(1, 40, 48, 0.3);
       }
 
       .video-layer {
@@ -515,6 +515,40 @@
             /* slick svg buttons end */
           }
           /* Button styling end */
+
+          .slick-dots {
+            li {
+              width: 0.5rem !important;
+              height: 0.5rem !important;
+              border: none !important;
+              margin: 0 0.6rem !important;
+              border-radius: 100% !important;
+              background-color: #000;
+              box-sizing: content-box;
+              flex: 0 1 auto;
+              padding: 0;
+              text-indent: -999px;
+              cursor: pointer;
+              background-clip: padding-box;
+              opacity: 0.5;
+              // transition: opacity 0.6s ease;
+              &.slick-active {
+                transform: scale(2.5) !important;
+                box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.21) !important;
+                background-color: #fff;
+                opacity: 1;
+              }
+
+              button {
+                width: 0.5rem !important;
+                height: 0.5rem !important;
+                padding: 0;
+                &:before {
+                  content: none;
+                }
+              }
+            }
+          }
         }
 
         .slick-track {
@@ -1069,7 +1103,7 @@
 
             .footer-logo {
               height: 152px;
-    width: 300px;
+              width: 300px;
             }
 
             .footer-text {

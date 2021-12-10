@@ -44,6 +44,12 @@ const Services = () => {
     // speed: 500, // for autoPlay which I don't really need so I'm leaving it out
     slidesToShow: 3,
     slidesToScroll: 1,
+    // appendDots: dots => <div>{dots}</div>,
+    // customPaging: i => (
+    //   <div className="my-dots">
+    //     <button className="dot-btn"></button>
+    //   </div>
+    // ),
     responsive: [
       {
         breakpoint: 99999,

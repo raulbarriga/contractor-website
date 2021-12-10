@@ -10,7 +10,7 @@ import GrPrevious from "../../public/svgs/gr-previous.svg";
 import GrNext from "../../public/svgs/gr-next.svg";
 
 const ModalCarousel = ({ isModalOpen, onClose, images, selectedImg }) => {
-  const [currentImg, setCurrentImg] = useState(selectedImg - 1);
+  const [currentImg, setCurrentImg] = useState(selectedImg);
   const length = images.length;
   // for React's createPortal Modal
   const [isBrowser, setIsBrowser] = useState(false);
@@ -101,7 +101,7 @@ console.log("modal images: ", images);
               <motion.img
                 id="ModalImage"
                 ref={ref}
-                key={images[currentImg].key}
+                key={images[currentImg]}// .key
                 src={images[currentImg].mediaUrl.src ? images[currentImg].mediaUrl.src : images[currentImg].mediaUrl}
                 alt={images[currentImg].mediaUrl.src}
                 initial={{ opacity: 0 }}
