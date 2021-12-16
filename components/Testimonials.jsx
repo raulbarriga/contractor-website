@@ -50,12 +50,14 @@ const Testimonials = () => {
         "Very reliable and dependable. But most importantly great quality work and very productive. I am a construction superintendent and we are definitely using this company on many more projects.",
     },
     {
+      // A REAL CLIENT of JB & B
       key: 5,
-      client: "Alberto Cruz",
+      client: "Amanda Taycon Properties",
       quote:
-        "Had Front Door Installed and Laundry Room Remodel. Great Service at a Great Price 💯👌",
+        "Jorge and his team remodeled my house and they went above and beyond to ensure that everything was perfect by the time they were finished. Their attention to detail and precision is almost unseen in today's workmanship and you can tell they pride themselves in doing A quality work. I get compliments everytime someone comes over on the way my house looks. I cannot recommend JB&B enough. From their prices, services, and quality you will not go wrong with hiring them for any project you need.",
     },
-    { // A REAL CLIENT of JB & B
+    {
+      // A REAL CLIENT of JB & B
       key: 5,
       client: "Esperanza",
       quote:

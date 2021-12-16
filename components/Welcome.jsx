@@ -33,8 +33,10 @@ const Welcome = () => {
             loop
             autoPlay
           >
+            {/* a better quality of images video */}
+            {/* but it's 70.18MB on Cloudinary (for desktops/laptops only) */}
             <source
-              src="https://res.cloudinary.com/raba64577/video/upload/v1633065693/JB%20and%20B%20Construction%2C%20Inc./JB_B_Construction_Inc_jzf1ce.mp4"
+              src="https://res.cloudinary.com/raba64577/video/upload/v1639683986/JB%20and%20B%20Construction%2C%20Inc./Tio-Jorge_Better-Quality2_jep2wd.mp4"
               type="video/mp4"
             />
             {/* <source
