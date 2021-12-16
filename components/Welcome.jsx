@@ -29,7 +29,7 @@ const Welcome = () => {
           <video
             muted
             playsInline
-            poster={"https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_100/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg"}
+            poster={"https://res.cloudinary.com/raba64577/image/upload/v1638930549/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-2/image6.jpg"}
             loop
             autoPlay
           >
