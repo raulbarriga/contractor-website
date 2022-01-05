@@ -17,7 +17,7 @@ const Welcome = () => {
         <Image
           // placeholder="blur"
           className="mobileBackgroundImage"
-          src={"https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_100/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/image8.jpg"}
+          src={"https://res.cloudinary.com/raba64577/image/upload/c_scale,w_704,q_100/v1633633805/JB%20and%20B%20Construction%2C%20Inc./Remodeling/Project-1/image8.jpg"}
           layout="fill"
           objectFit="cover"
           alt="Welcome image"
