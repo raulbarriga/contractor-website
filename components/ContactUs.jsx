@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { isMobile } from "react-device-detect";
-import Image from "next/image";
-import{ init, send } from 'emailjs-com';
 
-// import { sendForm } from "../axios/index";
-import ContactUsImage from "../public/images/Gallery Images/image45.jpg";
-import * as gtag from "../lib/gtag";
-
+import {
+  sendForm
+} from "../api/index";
 
 const ContactUs = () => {
-  // for ssr
-  const [mobile, setMobile] = useState();
   const [fadeOut, setFadeOut] = useState(false);
   const [submit, setSubmit] = useState(false);
-
-  useEffect(() => {
-    setMobile(isMobile);
-      init("user_ZNljYlzkMvUQiI926og3B"); //use your USER ID
-  }, [setMobile]);
 
   const {
     register,
@@ -27,30 +17,12 @@ const ContactUs = () => {
     reset,
   } = useForm();
 
-  const onSubmitForm = async (formValues, e) => {
-    e.preventDefault();
-
-    // from axios (sends the data to axios which'll then send it to the backend api route)
-    // sendForm(formValues);
-  
-  // console.log(formValues)
-  send('tio_jorge_form', 'template_ea49wri', formValues) //use your Service ID and Template ID
-      .then(function(response) {
-         console.log('SUCCESS!', response.status, response.text);
-      }, function(error) {
-         console.log('FAILED...', error);
-      });
-    gtag.event({
-      action: "submit_form", 
-      category: "contact_form", 
-      label: "Form Submitted", 
-      value: true
-    })
-    setSubmit(true); 
-    reset(); // from react-hook-form
-    setFadeOut(true);
-    // reload browser 6 seconds after it's submitted
-    setTimeout(() => window.location.reload(), 6000);
+  const onSubmitForm = async (formValues, event) => {
+      event.preventDefault();
+    setSubmit(true);
+    sendForm(formValues);  
+    reset();
+setFadeOut(true); 
   };
 
   const onBlurHandler = (e) => {
@@ -63,26 +35,14 @@ const ContactUs = () => {
 
   return (
     <section className="contactUs-section">
-      {mobile ? (
-        <div className={"non-parallax-container"}>
-          <Image
-            placeholder="blur"
-            className={"non-parallax-next-img"}
-            src={ContactUsImage}
-            layout="fill"
-            objectFit="cover"
-            alt="Contact Us image"
-          />
-        </div>
-      ) : (
-        <div
-          className="parallax-img"
-          alt="Quote-Image"
-          style={{
-            backgroundAttachment: "fixed",
-          }}
-        ></div>
-      )}
+      {/* <img className="form-img" src={formImage} alt={formImage} /> */}
+      <div
+        className="parallax-img"
+        alt="Quote-Image"
+        style={{
+          backgroundAttachment: `${isMobile ? "scroll" : "fixed"}`,
+        }}
+      ></div>
       <div id="contactUs-section" className="form-title">
         <h2>FREE ESTIMATES</h2>
       </div>
@@ -92,38 +52,41 @@ const ContactUs = () => {
       <div className="form-container">
         <form
           id="contact-form"
-          // method="POST"
-          // action="contactForm"
+          method="POST"
+          action="contactForm"
           onSubmit={handleSubmit(onSubmitForm)}
         >
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              name="first_name"
+              // name="firstName"
               type="text"
-              {...register("first_name", {
-                required: "You must enter your name"
+              {...register("first-name", {
+                required: {
+                  value: true,
+                  message: "You must enter your name",
+                },
               })}
               maxLength="100"
               placeholder="First Name"
             />
-            {errors["first_name"] && (
+            {errors["first-name"] && (
               <span
                 className="error-span"
                 style={{
                   padding: "10px 5px 10px 5px",
                 }}
               >
-                {errors["first_name"].message}
+                {errors["first-name"].message}
               </span>
             )}
           </div>
           <div>
             <input
               className="inputs"
-              name="last_name"
+              // name="last-name"
               type="text"
-              {...register("last_name")}
+              {...register("last-name")}
               maxLength="100"
               placeholder="Last Name"
             />
@@ -131,28 +94,34 @@ const ContactUs = () => {
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              name="email"
+              // name="email"
               type="email"
               {...register("email", {
-                required: "You must enter a valid email",
-                pattern: {
-                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                required: {
+                  value: true,
+                  pattern:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                   message: "You must enter a valid email",
                 },
               })}
               maxLength="250"
-              // required // if I use this, the browser will show the error, not me
+              // required // to trigger our message I might have to comment this out/remove it
               placeholder="Email"
             />
           </div>
           <div onBlur={onBlurHandler}>
             <input
               className="inputs"
-              name="phone"
+              // name="phone"
               type="tel"
               {...register("phone", {
-                required: "You must enter your phone number"
+                required: {
+                  value: true,
+                  pattern: /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/,
+                  message: "You must enter your phone number",
+                },
               })}
+              maxLength="10"
               placeholder="Phone"
             />
           </div>
@@ -186,9 +155,12 @@ const ContactUs = () => {
           <div className="textArea" onBlur={onBlurHandler}>
             <textarea
               className="inputs"
-              name="message"
+              // name="message"
               {...register("message", {
-                required: "You must enter your message"
+                required: {
+                  value: true,
+                  message: "You must enter your message",
+                },
               })}
               placeholder="Message"
             ></textarea>
@@ -207,19 +179,21 @@ const ContactUs = () => {
           </div>
 
           {submit === false && (
-            <div className="btn">
-              <button type="submit" value="Send">
-                SUBMIT
-              </button>
-            </div>
+          <div className="btn">
+            <button type="submit" value="Send">
+              SUBMIT
+            </button>
+          </div>
           )}
 
           {submit && (
             <div
               className={fadeOut ? "btn-msg fadeOut" : "btn-msg"}
-              // onAnimationEnd={() => {
-              // setFadeOut(false); // if I want it to reappear again
-              // }}
+              onAnimationEnd={() => {
+                console.log("Animation ended");
+                // setFadeOut(false); // if I want it to reappear again
+                console.log("fadeOut: ", fadeOut);
+              }}
             >
               <p>Thanks for submitting!</p>
             </div>
