@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { isMobile } from "react-device-detect";
 import Image from "next/image";
-import{ init, send } from 'emailjs-com';
+import { init, send } from "@emailjs/browser";
 
 // import { sendForm } from "../axios/index";
 import ContactUsImage from "../public/images/Gallery Images/image45.jpg";
 import * as gtag from "../lib/gtag";
-
 
 const ContactUs = () => {
   // for ssr
@@ -17,7 +16,7 @@ const ContactUs = () => {
 
   useEffect(() => {
     setMobile(isMobile);
-      init("user_ZNljYlzkMvUQiI926og3B"); //use your USER ID
+    init(process.env.EMAILJS_PUBLIC_KEY); //use your USER ID/PUBLIC KEY
   }, [setMobile]);
 
   const {
@@ -32,21 +31,29 @@ const ContactUs = () => {
 
     // from axios (sends the data to axios which'll then send it to the backend api route)
     // sendForm(formValues);
-  
-  // console.log(formValues)
-  send('tio_jorge_form', 'template_ea49wri', formValues) //use your Service ID and Template ID
-      .then(function(response) {
-         console.log('SUCCESS!', response.status, response.text);
-      }, function(error) {
-         console.log('FAILED...', error);
-      });
+
+    // console.log(formValues)
+
+    //use your Service ID and Template ID
+    send(
+      process.env.EMAILJS_SERVICE_ID,
+      process.env.EMAILJS_TEMPLATE_ID,
+      formValues
+    ).then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+      },
+      function (error) {
+        console.log("FAILED...", error);
+      }
+    );
     gtag.event({
-      action: "submit_form", 
-      category: "contact_form", 
-      label: "Form Submitted", 
-      value: true
-    })
-    setSubmit(true); 
+      action: "submit_form",
+      category: "contact_form",
+      label: "Form Submitted",
+      value: true,
+    });
+    setSubmit(true);
     reset(); // from react-hook-form
     setFadeOut(true);
     // reload browser 6 seconds after it's submitted
@@ -102,7 +109,7 @@ const ContactUs = () => {
               name="first_name"
               type="text"
               {...register("first_name", {
-                required: "You must enter your name"
+                required: "You must enter your name",
               })}
               maxLength="100"
               placeholder="First Name"
@@ -136,7 +143,8 @@ const ContactUs = () => {
               {...register("email", {
                 required: "You must enter a valid email",
                 pattern: {
-                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                   message: "You must enter a valid email",
                 },
               })}
@@ -151,7 +159,7 @@ const ContactUs = () => {
               name="phone"
               type="tel"
               {...register("phone", {
-                required: "You must enter your phone number"
+                required: "You must enter your phone number",
               })}
               placeholder="Phone"
             />
@@ -188,7 +196,7 @@ const ContactUs = () => {
               className="inputs"
               name="message"
               {...register("message", {
-                required: "You must enter your message"
+                required: "You must enter your message",
               })}
               placeholder="Message"
             ></textarea>

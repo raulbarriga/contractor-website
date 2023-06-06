@@ -1,10 +1,10 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "general-contractor-firm",
+  "version": "0.2.0",
   "private": true,
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": "18.x",
+    "npm": "9.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -13,23 +13,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
-    "axios": "^0.21.1",
-    "babel-plugin-inline-react-svg": "^2.0.1",
-    "emailjs-com": "^3.2.0",
-    "framer-motion": "^4.1.17",
-    "hamburger-react": "^2.4.1",
-    "next": "^11.1.0",
-    "node-sass": "^4.14.1",
-    "react": "^17.0.2",
-    "react-device-detect": "^1.17.0",
-    "react-dom": "^17.0.2",
-    "react-hook-form": "^7.12.2",
-    "react-slick": "^0.28.1",
-    "react-use": "^17.2.4",
+    "@emailjs/browser": "^3.11.0",
+    "@svgr/webpack": "^8.0.1",
+    "axios": "^1.4.0",
+    "babel-plugin-inline-react-svg": "^2.0.2",
+    "framer-motion": "^10.12.16",
+    "hamburger-react": "^2.5.0",
+    "next": "^13.4.4",
+    "node-sass": "^9.0.0",
+    "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.44.3",
+    "react-slick": "^0.29.0",
+    "react-use": "^17.4.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^16.1.4"
   }
 }
