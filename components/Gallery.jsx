@@ -44,25 +44,32 @@ const Gallery = ({
   return (
     <section id="gallery" className="gallery-component">
       <div className="gallery-container">
-        {items.slice(0, visibleImages).map((item, index) => (
-          <div key={index} className="img">
-            <Image
-              src={item.mediaUrl}
-              key={index}
-              alt={item.mediaUrl}
-              layout="fill"
-              unoptimized={true}
-              // placeholder="blur"
-              onClick={() => {
-                //save the scroll position to restore it once modal is closed (fixing fullscreen api issue)
-                setScrollPosition(window.pageYOffset);
-                setIsModalOpen(true);
-                setIsToTopVisible(false); // don't show the scroll-to-top btn
-                setSelectedImg(index);
-              }}
-            />
-          </div>
-        ))}
+        {items.slice(0, visibleImages).map((item, index) => {
+          // Extract width and height from Cloudinary URL
+          const width = parseInt(item.mediaUrl.match(/w_(\d+)/)[1]);
+          const aspectRatio = 704 / width;
+          const height = Math.round(704 / aspectRatio);
+
+          return (
+            <div key={index} className="img">
+              <Image
+                src={item.mediaUrl}
+                key={index}
+                alt={item.mediaUrl}
+                fill
+                unoptimized={true}
+                // placeholder="blur"
+                onClick={() => {
+                  //save the scroll position to restore it once modal is closed (fixing fullscreen api issue)
+                  setScrollPosition(window.pageYOffset);
+                  setIsModalOpen(true);
+                  setIsToTopVisible(false); // don't show the scroll-to-top btn
+                  setSelectedImg(index);
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {visibleImages < items.length && (
