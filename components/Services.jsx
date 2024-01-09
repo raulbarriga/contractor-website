@@ -21,6 +21,7 @@ const Services = () => {
       </div>
     );
   };
+  
   const NextButton = ({ className, style, onClick }) => {
     return (
       <div className="btn right-btn">

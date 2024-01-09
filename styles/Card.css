@@ -1,34 +1,35 @@
+.services .slick-slider.slick-initialized .slick-list {
+  padding-bottom: 40px !important;
+}
+
 .services .slick-slider.slick-initialized .card-container {
-    height: 440px;
-    width: 300px;
-    max-width: 300px;
-    /* The margin will make the browser edges uneven */
-    /* margin: 0 20px; */
-  }
-    
-  .services .slick-slider.slick-initialized .card-container:focus {
-    outline: 0;
-  }
-  
-  .services .slick-slider.slick-initialized .card-container .card {
-    width: 100%;
-    /* height: 450px; */
-    height: auto;
-    border-radius: 16px;
-    /* border is for development */
-    /* border: 1px solid red; */
-    overflow: hidden;
-    position: relative;
-    /* box-shadow: 0 20px 50px rgb(0 0 0 / 80%); */
-  }
-    
-  .services .slick-slider.slick-initialized .card-container .card .face {
-    width: 300px;
-    height: 200px;
-    /* transition: transform 0.5s ease-in-out; */
-  }
-    
-  .services .card-container .card .face.face1 {
+  overflow: hidden;
+  max-width: 24rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)!important;
+}
+
+.services .slick-slider.slick-initialized .card-container:focus {
+  outline: 0;
+}
+
+/* .services .slick-slider.slick-initialized .card-container .card {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+} */
+/* box-shadow: 0 20px 50px rgb(0 0 0 / 80%); */
+
+/* transition: transform 0.5s ease-in-out; */
+/* .services .slick-slider.slick-initialized .card-container .card .face {
+  width: 300px;
+  height: 200px;
+} */
+
+/* for the next/image bottom padding bug */
+/* .services .card-container img {
     position: relative;
     background: #333;
     display: -moz-box;
@@ -38,19 +39,17 @@
     -moz-box-align: center;
     align-items: center;
     z-index: 1;
-    /* for the next/image bottom padding bug */
-  }
-    
-   
-    /* card hover */
-    /* .card-container .card:hover .face.face1 {
+  } */
+
+/* card hover */
+/* .card-container .card:hover .face.face1 {
       margin: 0;
       padding: 0;
       border: none;
       transform: translateY(0);
     } */
-    
-    /* .card-container .card .face.face1 .content {
+
+/* .card-container .card .face.face1 .content {
       opacity: 0.5;
       transition: 0.5s;
     }
@@ -59,67 +58,42 @@
       opacity: 1;
     } */
 
-    /* tweak for the next/image bottom padding bug */
-    .card-container .card .face.face1 .content > div:first-child {
-      display: block !important;
-    }
-    
-    .services .card-container .card .face.face1 .content img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-  
-    .services .card-container .card .face.face1 .content .text-box {
-      position: absolute;
-    bottom: 0px;
-    height: 100%;
-    text-align: center;
-    width: 100%;
-    background-color: rgba(0,0,0,0.2);
-    display: -moz-box;
-    display: flex;
-    -moz-box-align: center;
-    align-items: center;
-    -moz-box-pack: center;
-    justify-content: center;
-    background-size: cover;
-    background-position: 50%;
-    }
-    
-    .services .card-container .card .face.face1 .content h3 {
-      position: absolute;
-    bottom: 0;
-    -webkit-transform: translateY(16%);
-    transform: translateY(16%);
-    margin: 0 0 2rem;
-    padding: 0;
-    color: #fff;
-    /* color: black; */
-    text-align: center;
-    font-size: 1.5em;
-    }
-    
-    .services .card-container .card .face.face2 {
-      position: relative;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8); */
-      transform: translateY(0px);
-    }
-    
-    /* card hover */
-    /* .card-container .card:hover .face.face2 {
-      transform: translateY(0);
-      transition: translateY 1s ease-in;
-    } */
-    
-    .services .card-container .card .face.face2 .content p {
-      margin: 0;
-      padding: 0;
-      font-size: 14px;
-    }
+/* tweak for the next/image bottom padding bug */
+.card-container .card .face.face1 .content > div:first-child {
+  display: block !important;
+}
+
+.services .card-container img {
+  width: 100%;
+  max-width: 100%;
+  /* height: auto; */
+}
+
+/* 
+hard core chirstian heavy metal
+- the terror of demons
+- holy name
+- for today
+- impending doom
+*/
+
+.services .card-container .card-text {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  height: 280px;
+}
+
+.card-title {
+  text-align: center;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.625;
+}
+
+.services .card-container p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-size: 1rem !important;
+}
