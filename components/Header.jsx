@@ -31,14 +31,19 @@ const Header = ({ showNavBtn, viewportWidth }) => {
 
   return (
     <header id="header">
-      <a className="logo" href="/">
-        {/* <img src="/images/Logos/JB-and-B-Construction-logo.jpg" alt="logo" /> */}
-        <Image
-          // placeholder="blur"
-          src={logo}
-          alt="logo"
-        />
-      </a>
+      <div className="logo-wrapper">
+        <a className="logo" href="/">
+          <Image
+            // placeholder="blur"
+            src={logo}
+            fill
+            // width={100} // Set the desired width of your logo
+            // height={undefined}
+            // sizes="(max-width: 768px) 100vw, 700px"
+            alt="logo"
+          />
+        </a>
+      </div>
       <div className="title">
         <p>
           <span>

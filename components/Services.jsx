@@ -1,36 +1,40 @@
 import React from "react";
 import Slider from "react-slick";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 import { servicesData } from "./data/servicesData";
 import LeftBtn from "../public/svgs/leftArrow.svg";
 import RightBtn from "../public/svgs/rightArrow.svg";
 
-const Card = dynamic(() => import('./Card/Card'));
+const Card = dynamic(() => import("./Card/Card"));
 
 const Services = () => {
   const PrevButton = ({ className, style, onClick }) => {
     return (
       <div className="btn left-btn">
-        <LeftBtn
-          onClick={onClick}
-          aria-label="Go to previous slide"
-          className={["my-class-prev", className].join(" ")}
-          style={{ ...style }}
-        />
+        <div className="svg-wrapper">
+          <LeftBtn
+            onClick={onClick}
+            aria-label="Go to previous slide"
+            className={["my-class-prev", className].join(" ")}
+            style={{ ...style }}
+          />
+        </div>
       </div>
     );
   };
-  
+
   const NextButton = ({ className, style, onClick }) => {
     return (
       <div className="btn right-btn">
-        <RightBtn
-          onClick={onClick}
-          className={["my-class-next", className].join(" ")}
-          style={{ ...style }}
-          aria-label="Go to next slide"
-        />
+        <div className="svg-wrapper">
+          <RightBtn
+            onClick={onClick}
+            className={["my-class-next", className].join(" ")}
+            style={{ ...style }}
+            aria-label="Go to next slide"
+          />
+        </div>
       </div>
     );
   };
@@ -55,29 +59,49 @@ const Services = () => {
       {
         breakpoint: 99999,
         settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1349,
+        settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+          dots: true,
+        },
       },
       {
         // 600 since 2 cards are 600px total, plus card gap
         breakpoint: 730,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 470,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false // show no arrow buttons
+        },
+      },
+    ],
   };
 
   return (
@@ -85,13 +109,10 @@ const Services = () => {
       <h2>Our Services</h2>
       <p>A Lasting Impact</p>
 
-      <Slider
-        {...settings}
-      >
+      <Slider {...settings}>
         {servicesData.map((item) => (
           <Card item={item} key={item.key} />
-        )
-        )}
+        ))}
       </Slider>
     </section>
   );

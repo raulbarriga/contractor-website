@@ -73,17 +73,16 @@
     position: relative;
     z-index: 2;
 
-    a.logo {
-      display: inline-block;
-      margin-left: 50%;
-      transform: translateX(-50%);
+    .logo-wrapper {
+      position: relative;
+      margin: 0 auto;
+      max-width: 300px;
 
-      img {
-        height: 152px !important;
-        width: 300px !important;
-        /* margin-top: 10px !important; */
-        /* margin-bottom: 11px !important; */
-        min-height: auto !important;
+      a.logo {
+        img {
+          position: unset !important;
+          height: 152px !important;
+        }
       }
     }
 
@@ -122,10 +121,21 @@
 
       @include bp-devices {
         .hamburger-react {
-          position: absolute !important;
-          top: 50px;
-          right: 10px;
-          z-index: 10;
+          &[aria-expanded="true"] {
+            position: absolute !important;
+            top: 50px;
+            right: 10px;
+            z-index: 10;
+          }
+
+          &[aria-expanded="false"] {
+            position: absolute !important;
+            // top: 50px;
+            bottom: 0.5%;
+            right: 50%;
+            transform: translateX(50%);
+            z-index: 10;
+          }
         }
       }
 
@@ -441,6 +451,7 @@
         text-align: center;
         font-weight: 100;
         line-height: 1.875em;
+        line-height: 1.3rem;
         font-size: 18px;
         font-style: normal;
         font-variant-ligatures: normal;
@@ -450,7 +461,7 @@
         font-stretch: normal;
         font-family: "Nutino", sans-serif;
         font-display: swap;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
       }
 
       /* Button styling start */
@@ -500,7 +511,8 @@
               /* right: 47px; */
               right: calc(4.5%);
               /* bottom: 43.69%; */
-              bottom: 46.9%;
+              // bottom: 46.9%;
+              top: 43%;
 
               .slick-next {
                 transform: rotate(180deg);
@@ -899,6 +911,7 @@
                 max-width: 100%;
               }
             }
+
             &:nth-of-type(4) {
               // phone div
               display: flex;
@@ -911,11 +924,13 @@
                 max-width: 100%;
               }
             }
+
             &:not(:nth-of-type(5)) {
               // come back to this (needs correcting
               margin-bottom: 10px;
             }
           }
+
           .inputs {
             font-style: normal;
             font-variant-ligatures: normal;
@@ -947,6 +962,7 @@
 
           .textArea {
             margin-bottom: 44px;
+
             textarea {
               resize: none;
               height: 191px;
@@ -959,6 +975,7 @@
             margin-bottom: 32px;
             text-align: center;
             transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+
             button {
               all: unset;
               width: 195px;

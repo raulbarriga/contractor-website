@@ -5,8 +5,10 @@
 .services .slick-slider.slick-initialized .card-container {
   overflow: hidden;
   max-width: 24rem;
+  max-width: 18.75rem !;
   border-radius: 0.25rem;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)!important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 .services .slick-slider.slick-initialized .card-container:focus {
@@ -23,7 +25,7 @@
 /* box-shadow: 0 20px 50px rgb(0 0 0 / 80%); */
 
 /* transition: transform 0.5s ease-in-out; */
-/* .services .slick-slider.slick-initialized .card-container .card .face {
+/* .2                                                                                                                                              services .slick-slider.slick-initialized .card-container .card .face {
   width: 300px;
   height: 200px;
 } */
@@ -69,13 +71,7 @@
   /* height: auto; */
 }
 
-/* 
-hard core chirstian heavy metal
-- the terror of demons
-- holy name
-- for today
-- impending doom
-*/
+
 
 .services .card-container .card-text {
   background: #fff;
@@ -96,4 +92,73 @@ hard core chirstian heavy metal
   padding: 0;
   font-size: 14px;
   font-size: 1rem !important;
+  font-size: 0.95rem !important;
+}
+
+@media (max-width: 351) {
+  .card-text {
+    padding: 1rem 1rem;
+  }
+  .card-text p {
+    line-height: 1.45rem;
+  }
+}
+
+@media (max-width: 355) {
+  .card-title {
+    line-height: 1.45rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/*
+
+from 360px width & less, the cards' text has issues (see the Kitchen & Bathroom Remodeling one & the Dry Wall one) 
+
+- the biggest font-size (at 360px screen width) is 0.95rem (15.2px equivalent)
+- the smallest font-size is font-size: 0.9375rem; (15px) at 280px screen width (I also gave the line-height: 1.3rem
+
+For the card, if I want to make it less wide in the smallest (280px) viewport width, I could give the div with class "card-container" max-width: 16rem;. This gives it some natural padding via the max-width.
+
+
+*/
+
+@media (min-width: 280px) {
+  .slick-slider.slick-initialized .btn {
+    top: 41% !important;
+  }
+
+  .svg-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .slick-prev, .slick-next {
+    position: unset !important;
+  }
+
+  .card-container {
+    max-width: 16rem !important;
+  }
+
+  .card-text {
+    padding: 0.75rem !important;
+  }
+
+  .card-title {
+    line-height: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-text p {
+    font-size: clamp(0.9375rem, 0.94375rem, 0.95rem);
+    line-height: 1.3rem;
+  }
+  /* 
+  the height & width of the svg buttons could be 24px for the 280px screen width.
+
+  - 730px screen width is when 2 cards appear
+  - I could try to use clamp() for the max-width to see if it could expand before the 2 cards appear.
+  */
 }
