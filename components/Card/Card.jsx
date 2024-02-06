@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-// import "./Card.module.css";
-
 const Card = ({ item }) => {
   return (
     <div className="card-container">

@@ -63,7 +63,7 @@
 }
 
 @media (max-width: 351px) {
-  /* if I want some of these to take effect (even if it's within a media query), then I also need to use the same number of css class selectors as the original css that I want to target. If I use less css classes, then the css here won't work because the more specific one (the one with the most number of class selectors) will take greater precedence. 
+  /* if I want some of these CSS selectors to take effect (even if it's within a media query), then I also need to use the same number of css class selectors as the original css that I want to target. If I use less css classes, then the css here won't work because the more specific one (the one with the most number of class selectors) will take greater precedence. 
   - e.g.: `.services .card-container .card-text` is more specific & has higher precedence than just `.card-text`.
   */
   .services .card-container .card-text {
