@@ -12,14 +12,12 @@ const Services = () => {
   const PrevButton = ({ className, style, onClick }) => {
     return (
       <div className="btn left-btn">
-        <div className="svg-wrapper">
-          <LeftBtn
-            onClick={onClick}
-            aria-label="Go to previous slide"
-            className={["my-class-prev", className].join(" ")}
-            style={{ ...style }}
-          />
-        </div>
+        <LeftBtn
+          onClick={onClick}
+          aria-label="Go to previous slide"
+          className={["my-class-prev", className].join(" ")}
+          style={{ ...style }}
+        />
       </div>
     );
   };
@@ -27,14 +25,12 @@ const Services = () => {
   const NextButton = ({ className, style, onClick }) => {
     return (
       <div className="btn right-btn">
-        <div className="svg-wrapper">
-          <RightBtn
-            onClick={onClick}
-            className={["my-class-next", className].join(" ")}
-            style={{ ...style }}
-            aria-label="Go to next slide"
-          />
-        </div>
+        <RightBtn
+          onClick={onClick}
+          className={["my-class-next", className].join(" ")}
+          style={{ ...style }}
+          aria-label="Go to next slide"
+        />
       </div>
     );
   };
@@ -49,12 +45,6 @@ const Services = () => {
     // speed: 500, // for autoPlay which I don't really need so I'm leaving it out
     slidesToShow: 3,
     slidesToScroll: 1,
-    // appendDots: dots => <div>{dots}</div>,
-    // customPaging: i => (
-    //   <div className="my-dots">
-    //     <button className="dot-btn"></button>
-    //   </div>
-    // ),
     responsive: [
       {
         breakpoint: 99999,
@@ -98,7 +88,16 @@ const Services = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
-          arrows: false // show no arrow buttons
+          arrows: false, // show no arrow buttons
+        },
+      },
+      {
+        breakpoint: 275,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+          arrows: false, // show no arrow buttons
         },
       },
     ],

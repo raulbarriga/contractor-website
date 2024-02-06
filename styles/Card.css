@@ -4,8 +4,8 @@
 
 .services .slick-slider.slick-initialized .card-container {
   overflow: hidden;
-  max-width: 24rem;
-  max-width: 18.75rem !;
+  /* max-width: 24rem; */
+  max-width: 18.75rem;
   border-radius: 0.25rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
@@ -14,21 +14,6 @@
 .services .slick-slider.slick-initialized .card-container:focus {
   outline: 0;
 }
-
-/* .services .slick-slider.slick-initialized .card-container .card {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-} */
-/* box-shadow: 0 20px 50px rgb(0 0 0 / 80%); */
-
-/* transition: transform 0.5s ease-in-out; */
-/* .2                                                                                                                                              services .slick-slider.slick-initialized .card-container .card .face {
-  width: 300px;
-  height: 200px;
-} */
 
 /* for the next/image bottom padding bug */
 /* .services .card-container img {
@@ -43,23 +28,6 @@
     z-index: 1;
   } */
 
-/* card hover */
-/* .card-container .card:hover .face.face1 {
-      margin: 0;
-      padding: 0;
-      border: none;
-      transform: translateY(0);
-    } */
-
-/* .card-container .card .face.face1 .content {
-      opacity: 0.5;
-      transition: 0.5s;
-    }
-    
-    .card-container .card:hover .face.face1 .content {
-      opacity: 1;
-    } */
-
 /* tweak for the next/image bottom padding bug */
 .card-container .card .face.face1 .content > div:first-child {
   display: block !important;
@@ -70,8 +38,6 @@
   max-width: 100%;
   /* height: auto; */
 }
-
-
 
 .services .card-container .card-text {
   background: #fff;
@@ -85,65 +51,43 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   line-height: 1.625;
+  line-height: 1.45rem;
 }
 
-.services .card-container p {
+.main-container .content-wrap .services .card-container p {
   margin: 0;
   padding: 0;
-  font-size: 14px;
-  font-size: 1rem !important;
-  font-size: 0.95rem !important;
+  /* font-size: 14px;
+  font-size: 1rem; */
+  font-size: 0.95rem;
 }
 
-@media (max-width: 351) {
-  .card-text {
+@media (max-width: 351px) {
+  /* if I want some of these to take effect (even if it's within a media query), then I also need to use the same number of css class selectors as the original css that I want to target. If I use less css classes, then the css here won't work because the more specific one (the one with the most number of class selectors) will take greater precedence. 
+  - e.g.: `.services .card-container .card-text` is more specific & has higher precedence than just `.card-text`.
+  */
+  .services .card-container .card-text {
     padding: 1rem 1rem;
   }
-  .card-text p {
+
+  .main-container .content-wrap .services .card-container p {
     line-height: 1.45rem;
   }
 }
 
-@media (max-width: 355) {
+@media (max-width: 355px) {
   .card-title {
-    line-height: 1.45rem;
     margin-bottom: 0.25rem;
   }
 }
 
-/*
-
-from 360px width & less, the cards' text has issues (see the Kitchen & Bathroom Remodeling one & the Dry Wall one) 
-
-- the biggest font-size (at 360px screen width) is 0.95rem (15.2px equivalent)
-- the smallest font-size is font-size: 0.9375rem; (15px) at 280px screen width (I also gave the line-height: 1.3rem
-
-For the card, if I want to make it less wide in the smallest (280px) viewport width, I could give the div with class "card-container" max-width: 16rem;. This gives it some natural padding via the max-width.
-
-
-*/
-
-@media (min-width: 280px) {
-  .slick-slider.slick-initialized .btn {
-    top: 41% !important;
+@media (max-width: 320px) {
+  .services .slick-slider.slick-initialized .card-container {
+    max-width: 16rem;
   }
 
-  .svg-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .slick-prev, .slick-next {
-    position: unset !important;
-  }
-
-  .card-container {
-    max-width: 16rem !important;
-  }
-
-  .card-text {
-    padding: 0.75rem !important;
+  .services .card-container .card-text {
+    padding: 0.75rem;
   }
 
   .card-title {
@@ -151,14 +95,8 @@ For the card, if I want to make it less wide in the smallest (280px) viewport wi
     margin-bottom: 0.3rem;
   }
 
-  .card-text p {
+  .main-container .content-wrap .services .card-container p {
     font-size: clamp(0.9375rem, 0.94375rem, 0.95rem);
     line-height: 1.3rem;
   }
-  /* 
-  the height & width of the svg buttons could be 24px for the 280px screen width.
-
-  - 730px screen width is when 2 cards appear
-  - I could try to use clamp() for the max-width to see if it could expand before the 2 cards appear.
-  */
 }
